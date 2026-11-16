@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/Vietnam_2027_Mobile_Itinerary.html" }
+  ]
+}
