@@ -208,13 +208,14 @@ nav a:hover, a.map:hover, .contact a:hover, button:hover { background: var(--ros
   transform: rotate(-5deg);
 }
 .geo-canvas li b { padding: 1px 3px; border-radius: 4px; background: #fffaf0; font-size: 11px; line-height: 1.3; }
+.geo-label { white-space: nowrap; }
 .geo-label, .geo-north { font-size: 11px; font-weight: 700; color: #286571; }
 .geo-sea { --x: 93%; --y: 90%; }
 .geo-north { position: absolute; right: 10px; top: 8px; }
 @media (max-width: 640px) {
   .geo-canvas {
     aspect-ratio: auto;
-    height: clamp(285px, 82vw, 390px);
+    height: clamp(340px, 92vw, 420px);
   }
   .geo-canvas li { width: 25%; }
   .geo-canvas li b { overflow-wrap: anywhere; }
@@ -468,7 +469,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <figcaption><strong>峴港海岸</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="13" d="M354 -10C352 66 299 119 315 171S366 229 327 280S294 355 310 405"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
     <span class="geo-north" aria-hidden="true">↑ 北</span>
-    <span class="geo-label" style="--x:49%;--y:25%">韓江</span>
+    <span class="geo-label" style="--x:47%;--y:41%">韓江</span>
     <span class="geo-label geo-sea">南海</span>
     <ul aria-label="峴港海岸地標"><li style="--x:18%;--y:62%"><span aria-hidden="true">✈️</span><b>峴港機場</b></li><li style="--x:57%;--y:24%"><span aria-hidden="true">🌿</span><b>Herbal Spa</b></li><li style="--x:79%;--y:37%"><span aria-hidden="true">🦀</span><b>4U 海鮮餐廳</b></li><li style="--x:73%;--y:69%"><span aria-hidden="true">🏨</span><b>M Hotel</b></li></ul>
   </div>
@@ -509,9 +510,9 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <figcaption><strong>峴港到會安</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="17" d="M-20 300C82 350 147 268 236 295S384 376 476 310S566 268 660 295"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
     <span class="geo-north" aria-hidden="true">↑ 北</span>
-    <span class="geo-label" style="--x:19%;--y:82%">秋盆河</span>
+    <span class="geo-label" style="--x:12%;--y:90%">秋盆河</span>
     <span class="geo-label geo-sea">南海</span>
-    <ul aria-label="峴港到會安地標"><li style="--x:50%;--y:18%"><span aria-hidden="true">🏨</span><b>峴港・M Hotel</b></li><li style="--x:63%;--y:44%"><span aria-hidden="true">⛰️</span><b>五行山</b></li><li style="--x:29%;--y:75%"><span aria-hidden="true">🏨</span><b>Laluna</b></li><li style="--x:53%;--y:69%"><span aria-hidden="true">🏮</span><b>會安古城</b></li><li style="--x:60%;--y:87%"><span aria-hidden="true">🌙</span><b>夜市・Mango Mango</b></li></ul>
+    <ul aria-label="峴港到會安地標"><li style="--x:50%;--y:18%"><span aria-hidden="true">🏨</span><b>峴港・M Hotel</b></li><li style="--x:63%;--y:44%"><span aria-hidden="true">⛰️</span><b>五行山</b></li><li style="--x:29%;--y:75%"><span aria-hidden="true">🏨</span><b>Laluna</b></li><li style="--x:54%;--y:64%"><span aria-hidden="true">🏮</span><b>會安古城</b></li><li style="--x:60%;--y:87%"><span aria-hidden="true">🌙</span><b>夜市・Mango Mango</b></li></ul>
   </div>
 </figure>
 <details class="day-route">
@@ -526,9 +527,9 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <figcaption><strong>會安古城與海岸</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="17" d="M-20 300C82 350 147 268 236 295S384 376 476 310S566 268 660 295"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
     <span class="geo-north" aria-hidden="true">↑ 北</span>
-    <span class="geo-label" style="--x:19%;--y:82%">秋盆河</span>
+    <span class="geo-label" style="--x:16%;--y:82%">秋盆河</span>
     <span class="geo-label geo-sea">南海</span>
-    <ul aria-label="會安古城與海岸地標"><li style="--x:82%;--y:17%"><span aria-hidden="true">🏖️</span><b>安邦海灘</b></li><li style="--x:60%;--y:43%"><span aria-hidden="true">🌾</span><b>稻田咖啡</b></li><li style="--x:82%;--y:69%"><span aria-hidden="true">🚣</span><b>迦南島椰子船</b></li><li style="--x:17%;--y:58%"><span aria-hidden="true">🌿</span><b>La Spa</b></li><li style="--x:38%;--y:70%"><span aria-hidden="true">🏮</span><b>古城・日本橋</b></li><li style="--x:41%;--y:43%"><span aria-hidden="true">🥖</span><b>Madam Khanh</b></li><li style="--x:44%;--y:85%"><span aria-hidden="true">🥢</span><b>Bale Well</b></li></ul>
+    <ul aria-label="會安古城與海岸地標"><li style="--x:78%;--y:16%"><span aria-hidden="true">🏖️</span><b>安邦海灘</b></li><li style="--x:66%;--y:33%"><span aria-hidden="true">🌾</span><b>稻田咖啡</b></li><li style="--x:82%;--y:59%"><span aria-hidden="true">🚣</span><b>迦南島椰子船</b></li><li style="--x:17%;--y:58%"><span aria-hidden="true">🌿</span><b>La Spa</b></li><li style="--x:39%;--y:66%"><span aria-hidden="true">🏮</span><b>古城・日本橋</b></li><li style="--x:40%;--y:43%"><span aria-hidden="true">🥖</span><b>Madam Khanh</b></li><li style="--x:46%;--y:86%"><span aria-hidden="true">🥢</span><b>Bale Well</b></li></ul>
   </div>
 </figure>
 <details class="day-route">
@@ -544,7 +545,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <figcaption><strong>峴港與山茶半島</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#dce6ba" d="M420 0h155l-13 39-39 21-66-10-42-29Z"/><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="13" d="M354 -10C352 66 299 119 315 171S366 229 327 280S294 355 310 405"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
     <span class="geo-north" aria-hidden="true">↑ 北</span>
-    <span class="geo-label" style="--x:49%;--y:36%">韓江</span>
+    <span class="geo-label" style="--x:48%;--y:32%">韓江</span>
     <span class="geo-label geo-sea">南海</span>
     <ul aria-label="峴港與山茶半島地標"><li style="--x:82%;--y:15%"><span aria-hidden="true">🏯</span><b>靈應寺</b></li><li style="--x:66%;--y:32%"><span aria-hidden="true">⛵</span><b>Sơn Trà Marina</b></li><li style="--x:37%;--y:49%"><span aria-hidden="true">🧺</span><b>韓市場</b></li><li style="--x:80%;--y:53%"><span aria-hidden="true">🏨</span><b>voco 飯店</b></li><li style="--x:73%;--y:78%"><span aria-hidden="true">🍜</span><b>Thìa Gỗ</b></li></ul>
   </div>
@@ -561,7 +562,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <figcaption><strong>美溪與峴港機場</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="13" d="M354 -10C352 66 299 119 315 171S366 229 327 280S294 355 310 405"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
     <span class="geo-north" aria-hidden="true">↑ 北</span>
-    <span class="geo-label" style="--x:49%;--y:25%">韓江</span>
+    <span class="geo-label" style="--x:49%;--y:35%">韓江</span>
     <span class="geo-label geo-sea">南海</span>
     <ul aria-label="美溪與峴港機場地標"><li style="--x:20%;--y:65%"><span aria-hidden="true">✈️</span><b>峴港機場</b></li><li style="--x:76%;--y:27%"><span aria-hidden="true">🏨</span><b>voco 飯店</b></li><li style="--x:71%;--y:49%"><span aria-hidden="true">☕</span><b>Cửa Ngõ 美溪店</b></li><li style="--x:76%;--y:72%"><span aria-hidden="true">🥟</span><b>Bếp Cuốn</b></li></ul>
   </div>
