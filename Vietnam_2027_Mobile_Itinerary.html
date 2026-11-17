@@ -479,6 +479,18 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   header.compact { padding-inline-end: 64px; }
   .event .small { overflow-wrap: anywhere; }
 }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.day-share { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.day-share button { min-height: 44px; }
+.day-share input { width: 100%; padding: 8px; color: var(--ink); border: 1px solid var(--line); border-radius: 6px; }
+.packing-filter { display: flex; align-items: center; gap: 8px; min-height: 44px; margin-block: 8px; cursor: pointer; }
+.packing-group { margin-top: 16px; }
+.packing-group-count { margin-inline-start: 6px; font-weight: 500; font-variant-numeric: tabular-nums; }
+@media print {
+  .day-share, .packing-filter { display: none; }
+  #packing label.check[hidden], #packing .packing-group[hidden] { display: flex !important; }
+  #packing .packing-group[hidden] { display: block !important; }
+}
 </style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><header id="top"><span class="lantern" aria-hidden="true"></span><span class="lantern" aria-hidden="true"></span><p>VIETNAM · TRAVEL JOURNAL</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div><div>六天五夜</div></header><nav id="main-navigation" tabindex="-1" class="primary-nav" aria-label="主要導覽">
   <a href="./" data-tab="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h7v12H3z M14 6h7v5h-7z M14 15h7v3h-7z"/></svg>旅程總覽</a>
   <a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v14H5z M5 10h14 M9 4v4m6-4v4 M9 14h2m2 0h2"/></svg>每日行程</a>
@@ -499,6 +511,12 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   </figure>
 </section></div>
 <div id="days">
+<div class="day-share">
+  <button id="copy-day" type="button">複製當日連結</button>
+  <span id="day-announcement" class="sr-only" role="status"></span>
+  <span id="copy-status" class="small" role="status"></span>
+  <input id="day-url" type="url" aria-label="當日行程網址" readonly hidden>
+</div>
 <nav id="date-navigation" tabindex="-1" class="date-nav" aria-label="選擇行程日期">
   <a href="?view=d1" data-day="d1">第 1 天<time datetime="2027-02-27">02/27（六）</time></a>
   <a href="?view=d2" data-day="d2">第 2 天<time datetime="2027-02-28">02/28（日）</time></a>
@@ -628,7 +646,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <a rel="next">後一天 →</a>
 </nav>
 <p class="small">除航班外，時間為依原始行程擬定的建議時間，並非預約。地圖採名稱搜尋，<span class="pending">餐廳、SPA、分店及接送仍待確認</span>。</p></div>
-<section id="packing"><h2>要帶的東西</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><h3 style="margin-top:16px">證件與金錢</h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label><h3 style="margin-top:16px">電子用品</h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><h3 style="margin-top:16px">衣物與日用品</h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a><a href="#top">回到頂部 ↑</a></footer></main><script>
+<section id="packing"><h2>要帶的東西</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a><a href="#top">回到頂部 ↑</a></footer></main><script>
 const dates = [...document.querySelectorAll('[data-day]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
 const pager = document.querySelector('.day-pager');
@@ -636,13 +654,49 @@ const navigation = document.getElementById('main-navigation');
 const dailyTab = tabs.find(link => link.dataset.tab === 'days');
 const baseTitle = document.title;
 const returnToDates = document.getElementById('return-to-dates');
+const copyDay = document.getElementById('copy-day');
+const copyStatus = document.getElementById('copy-status');
+const dayUrl = document.getElementById('day-url');
+const dayAnnouncement = document.getElementById('day-announcement');
+let currentDay = '';
+try {
+  const savedDay = sessionStorage.getItem('vn2027-last-day');
+  if (/^d[1-6]$/.test(savedDay)) dailyTab.href = '?view=' + savedDay;
+} catch {}
+
+if (!location.search && /^#d[1-6]$/.test(location.hash)) {
+  history.replaceState(null, '', '?view=' + location.hash.slice(1));
+}
+
+copyDay.addEventListener('click', async () => {
+  const url = new URL(location.pathname, location.origin);
+  url.searchParams.set('view', currentDay);
+  try {
+    await navigator.clipboard.writeText(url.href);
+    copyStatus.textContent = '已複製當日連結';
+  } catch {
+    dayUrl.value = url.href;
+    dayUrl.hidden = false;
+    dayUrl.select();
+    copyStatus.textContent = '請複製下方網址';
+  }
+});
 const panels = ['overview', 'days', 'packing'].map(id => document.getElementById(id));
 
 function renderView() {
   const requested = new URLSearchParams(location.search).get('view') || location.hash.slice(1);
   const isDay = /^d[1-6]$/.test(requested);
   const tab = isDay ? 'days' : requested === 'packing' ? 'packing' : 'overview';
-  if (isDay) dailyTab.href = '?view=' + requested;
+  if (requested !== currentDay) {
+    copyStatus.textContent = '';
+    dayUrl.hidden = true;
+    dayAnnouncement.textContent = isDay ? '已切換到第 ' + requested.slice(1) + ' 天' : '';
+  }
+  currentDay = isDay ? requested : '';
+  if (isDay) {
+    dailyTab.href = '?view=' + requested;
+    try { sessionStorage.setItem('vn2027-last-day', requested); } catch {}
+  }
   const heading = isDay ? document.querySelector('#' + requested + ' h2').textContent :
     tab === 'packing' ? '行李清單' : '';
   document.title = heading ? heading + '｜' + baseTitle : baseTitle;
@@ -710,11 +764,27 @@ const meter = document.getElementById('packing-meter');
 const reset = document.getElementById('reset');
 const undoPacking = document.getElementById('undo-packing');
 let lastPackingSelection = [];
+const onlyUnpacked = document.getElementById('only-unpacked');
+const packingEmpty = document.getElementById('packing-empty');
+const packingGroups = [...document.querySelectorAll('.packing-group')].map(panel => ({
+  panel,
+  items: [...panel.querySelectorAll('input')],
+  count: panel.querySelector('.packing-group-count')
+}));
 meter.max = checks.length;
 
 function updatePacking() {
   const count = checks.filter(item => item.checked).length;
-  progressText.textContent = '已準備 ' + count + ' / ' + checks.length + ' 項';
+  progressText.textContent = '已準備 ' + count + ' / ' + checks.length + ' 項 · 剩餘 ' + (checks.length - count) + ' 項';
+  packingEmpty.hidden = !onlyUnpacked.checked || count !== checks.length;
+  for (const group of packingGroups) {
+    const ready = group.items.filter(item => item.checked).length;
+    group.count.textContent = ready + ' / ' + group.items.length;
+    group.panel.hidden = onlyUnpacked.checked && ready === group.items.length;
+    for (const item of group.items) {
+      item.closest('label').hidden = onlyUnpacked.checked && item.checked;
+    }
+  }
   meter.value = count;
   reset.disabled = count === 0;
 }
@@ -732,7 +802,12 @@ for (const item of checks) {
   item.addEventListener('change', () => {
     undoPacking.hidden = true;
     storePacking(item);
+    const next = onlyUnpacked.checked && item.checked
+      ? checks.slice(checks.indexOf(item) + 1).find(check => !check.checked) ||
+        checks.find(check => !check.checked) || onlyUnpacked
+      : null;
     updatePacking();
+    if (next) next.focus();
   });
 }
 
@@ -758,7 +833,15 @@ undoPacking.addEventListener('click', () => {
   reset.focus();
 });
 
+onlyUnpacked.addEventListener('change', updatePacking);
 window.addEventListener('storage', event => {
+  if (event.storageArea !== localStorage) return;
+  if (event.key === null) {
+    for (const item of checks) item.checked = false;
+    undoPacking.hidden = true;
+    updatePacking();
+    return;
+  }
   const item = checks.find(check => 'vn2027-' + check.dataset.save === event.key);
   if (!item) return;
   undoPacking.hidden = true;
