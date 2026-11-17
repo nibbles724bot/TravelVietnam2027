@@ -372,6 +372,7 @@ footer { padding: 12px 4px 24px; }
 [hidden] { display: none !important; }
 nav a[aria-current] { color: white; background: var(--berry); border-color: var(--berry); }
 .date-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+#date-navigation:focus { outline: none; }
 .date-nav a { flex-direction: column; justify-content: center; padding-inline: 4px; line-height: 1.35; }
 .date-nav time { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
 .date-nav a { min-height: 55px; }
@@ -538,7 +539,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 </section></div>
 <div id="days">
 <span id="day-announcement" class="sr-only" role="status"></span>
-<nav id="date-navigation" tabindex="-1" class="date-nav" aria-label="選擇行程日期">
+<nav id="date-navigation" class="date-nav" aria-label="選擇行程日期">
   <a href="?view=d1" data-day="d1">第 1 天<time datetime="2027-02-27">02/27（六）</time></a>
   <a href="?view=d2" data-day="d2">第 2 天<time datetime="2027-02-28">02/28（日）</time></a>
   <a href="?view=d3" data-day="d3">第 3 天<time datetime="2027-03-01">03/01（一）</time></a>
