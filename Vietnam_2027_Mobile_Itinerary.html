@@ -354,30 +354,54 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 </nav>
 <p class="small">除航班外，時間為依原始行程擬定的建議時間，並非預約。地圖採名稱搜尋，<span class="pending">餐廳、SPA、分店及接送仍待確認</span>。</p></div>
 <section id="packing"><h2>要帶的東西</h2><p id="progress" class="small" aria-live="polite"></p><h3 style="margin-top:16px">證件與金錢</h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label><h3 style="margin-top:16px">電子用品</h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><h3 style="margin-top:16px">衣物與日用品</h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label><p><button id="reset" type="button">重設行李勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a href="#top">回到頂部 ↑</a></footer></main><script>
-const views = ['overview', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6', 'packing'];
-const requested = new URLSearchParams(location.search).get('view') || location.hash.slice(1);
-const view = views.includes(requested) ? requested : 'overview';
-const isDay = /^d[1-6]$/.test(view);
-const tab = isDay ? 'days' : view;
-document.getElementById('top').classList.toggle('compact', tab !== 'overview');
-for (const id of ['overview', 'days', 'packing']) {
-  document.getElementById(id).hidden = id !== tab;
-}
-document.querySelector('[data-tab="' + tab + '"]').setAttribute('aria-current', 'page');
-if (isDay) {
-  const day = Number(view.slice(1));
-  const pager = document.querySelector('.day-pager');
-  pager.hidden = false;
-  for (const date of document.querySelectorAll('[data-day]')) {
-    const id = date.dataset.day;
-    document.getElementById(id).hidden = id !== view;
-    if (id === view) date.setAttribute('aria-current', 'date');
+const dates = [...document.querySelectorAll('[data-day]')];
+const tabs = [...document.querySelectorAll('[data-tab]')];
+const pager = document.querySelector('.day-pager');
+const panels = ['overview', 'days', 'packing'].map(id => document.getElementById(id));
+
+function renderView() {
+  const requested = new URLSearchParams(location.search).get('view') || location.hash.slice(1);
+  const isDay = /^d[1-6]$/.test(requested);
+  const tab = isDay ? 'days' : requested === 'packing' ? 'packing' : 'overview';
+  document.getElementById('top').classList.toggle('compact', tab !== 'overview');
+  for (const panel of panels) panel.hidden = panel.id !== tab;
+  for (const link of tabs) {
+    if (link.dataset.tab === tab) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
   }
+  for (const date of dates) {
+    const selected = date.dataset.day === requested;
+    document.getElementById(date.dataset.day).hidden = !selected;
+    if (selected) date.setAttribute('aria-current', 'date');
+    else date.removeAttribute('aria-current');
+  }
+  pager.hidden = !isDay;
+  if (!isDay) return;
+
+  const day = Number(requested.slice(1));
   for (const link of pager.querySelectorAll('a')) {
     const target = day + (link.rel === 'prev' ? -1 : 1);
     link.hidden = target < 1 || target > 6;
     if (!link.hidden) link.href = '?view=d' + target;
   }
 }
+
+document.addEventListener('click', event => {
+  const link = event.target.closest('[data-day], .day-pager a[href]');
+  if (!link || event.defaultPrevented || event.button !== 0 ||
+      event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+  event.preventDefault();
+  if (link.href !== location.href) history.pushState(null, '', link.href);
+  renderView();
+  if (pager.contains(link)) {
+    const activeDate = document.querySelector('[data-day][aria-current]');
+    activeDate.focus({ preventScroll: true });
+    document.getElementById('days').scrollIntoView({ behavior: 'instant' });
+  }
+});
+
+window.addEventListener('popstate', renderView);
+renderView();
 </script>
 <script>const fields=[...document.querySelectorAll('[data-save]')], checks=fields.filter(x=>x.type==='checkbox');function update(){document.getElementById('progress').textContent='已準備 '+checks.filter(x=>x.checked).length+' / '+checks.length+' 項'}function store(x){try{localStorage.setItem('vn2027-'+x.dataset.save,x.type==='checkbox'?String(x.checked):x.value)}catch(e){}}fields.forEach(x=>{try{let v=localStorage.getItem('vn2027-'+x.dataset.save);if(v!==null){if(x.type==='checkbox')x.checked=v==='true';else x.value=v}}catch(e){}x.addEventListener('input',()=>{store(x);update()})});document.getElementById('reset').onclick=()=>{checks.forEach(x=>{x.checked=false;store(x)});update()};update();</script></html>
