@@ -24,7 +24,7 @@ header {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #613039;
+  background: radial-gradient(ellipse at 90% 0%, #783e48, transparent 64%), #613039;
   color: #fff7ed;
   border: 1px solid #613039;
   border-radius: 20px;
@@ -93,7 +93,10 @@ section {
   scroll-margin-top: 12px;
 }
 .small, footer { color: var(--muted); font-size: 13px; }
-.flight, .hotel { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.flight, .hotel { padding: 15px 0; border-bottom: 1px solid var(--line); }
+.flight > div:first-child, .hotel > .small { color: var(--muted); font-size: 13px; }
+.flight .times { margin-block: 2px; }
+.hotel > strong { display: inline; line-height: 1.45; }
 .flight:last-of-type, .hotel:last-child { border: 0; }
 .times { color: var(--berry); font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .booked {
@@ -151,7 +154,8 @@ nav a:hover, a.map:hover, .contact a:hover, button:hover { background: var(--ros
   border-radius: 20px;
 }
 .dayhead {
-  padding: 2px 0 20px;
+  padding: 2px 0 20px 13px;
+  border-inline-start: 3px solid #b58a62;
   margin-bottom: 7px;
   border-bottom: 1px solid #cbb0a7;
 }
@@ -345,8 +349,8 @@ a.booking-link:hover { background: #ead5cd; }
   .event > .map, .event-actions .map { min-height: 44px; }
 }
 .contact { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.contact a { display: block; padding: 10px 12px; }
-.contact strong { display: block; font-size: 23px; }
+.contact a { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 1px; padding: 9px 12px 11px; font-size: 13px; }
+.contact strong { display: block; font-size: 25px; line-height: 1.2; font-variant-numeric: tabular-nums; }
 label.check { display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 input[type=checkbox] { width: 22px; height: 22px; accent-color: var(--berry); flex-shrink: 0; }
 input:checked + span { text-decoration: line-through; color: var(--muted); }
@@ -370,9 +374,11 @@ nav a[aria-current] { color: white; background: var(--berry); border-color: var(
 .date-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
 .date-nav a { flex-direction: column; justify-content: center; padding-inline: 4px; line-height: 1.35; }
 .date-nav time { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
-.date-nav a { min-height: 48px; }
+.date-nav a { min-height: 55px; }
+.date-nav a[aria-current] { box-shadow: inset 0 -3px 0 #deb177; }
 .day-pager { display: flex; justify-content: space-between; }
 .day-pager a[rel="next"] { margin-left: auto; }
+.day-pager a { min-width: 108px; justify-content: center; }
 header.compact { padding-block: 17px; }
 header.compact h1 { font-size: clamp(26px, 5vw, 36px); margin: 6px 0; }
 header.compact .lantern { top: 12px; width: 28px; }
@@ -396,7 +402,8 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .skip-link:focus { transform: none; }
 #main-navigation, #days { scroll-margin-top: max(12px, env(safe-area-inset-top)); }
 .overview-links { grid-column: 1 / -1; margin-bottom: 0; }
-.overview-links a { font-size: 13px; min-height: 44px; }
+.overview-links a { font-size: 13px; min-height: 44px; border-radius: 999px; padding-inline: 13px; }
+.overview-links a[href="#pretrip"] { background: #f9e4cb; color: #713b15; border-color: #e8c6a5; }
 .packing-progress { background: #f7efea; padding: 10px 12px; border-radius: 8px; }
 .packing-progress p { margin: 0 0 4px; }
 .packing-progress progress { display: block; width: 100%; height: 10px; accent-color: var(--berry); }
@@ -482,7 +489,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .packing-filter { display: flex; align-items: center; gap: 8px; min-height: 44px; margin-block: 8px; cursor: pointer; }
 .packing-group { margin-top: 16px; }
-.packing-group-count { margin-inline-start: 6px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.packing-group-count { float: inline-end; line-height: 1.6; padding: 0 8px; border-radius: 999px; background: #f7efea; font-weight: 650; font-variant-numeric: tabular-nums; }
 @media print {
   .packing-filter { display: none; }
   #packing label.check[hidden], #packing .packing-group[hidden] { display: flex !important; }
@@ -493,9 +500,17 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .pretrip-list li + li { border-top: 1px solid var(--line); }
 .pretrip-list a { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; min-height: 44px; text-decoration: none; }
 .pretrip-list a:hover strong, .overview-detail:hover { text-decoration: underline; }
-.pretrip-list .small { flex: 0 0 3.8em; }
+.pretrip-list .small { flex: 0 0 3.8em; text-align: center; padding: 2px 4px; border-radius: 5px; background: #f7efea; }
+.pretrip-list strong { overflow-wrap: anywhere; }
 .overview-detail { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; text-decoration: none; }
-.date-nav .day-pending { font-size: 10px; color: inherit; margin-top: 2px; }
+.date-nav .day-pending {
+  margin-top: 4px;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: #f9e4cb;
+  color: #713b15;
+  font-size: 10px;
+}
 .evening-choice { background: #f7efea; border-radius: 8px; padding: 8px 12px; }
 [id^="pending-d"] { scroll-margin-top: 16px; }
 </style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><header id="top"><span class="lantern" aria-hidden="true"></span><span class="lantern" aria-hidden="true"></span><p>VIETNAM · TRAVEL JOURNAL</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div><div>六天五夜</div></header><nav id="main-navigation" tabindex="-1" class="primary-nav" aria-label="主要導覽">
