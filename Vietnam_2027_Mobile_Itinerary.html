@@ -266,8 +266,6 @@ footer { padding: 12px 4px 24px; }
 }
 
 [hidden] { display: none !important; }
-.primary-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.primary-nav a { justify-content: center; padding-inline: 4px; }
 nav a[aria-current] { color: white; background: var(--berry); border-color: var(--berry); }
 .date-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
 .date-nav a { flex-direction: column; justify-content: center; padding-inline: 4px; line-height: 1.35; }
@@ -290,14 +288,48 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 }
 #flights ul { margin: 3px 0 0; padding-left: 1.3em; }
 .primary-nav {
-  padding: 5px;
-  background: #ebe2d8;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  padding: 0 8px;
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: 12px;
-  gap: 4px;
 }
-.primary-nav a { border-color: transparent; background: transparent; }
-.primary-nav a:hover { background: var(--paper); }
-.primary-nav a[aria-current] { background: var(--berry); }
+.primary-nav a {
+  position: relative;
+  justify-content: center;
+  gap: clamp(4px, 1vw, 9px);
+  min-height: 52px;
+  padding: 6px 2px;
+  border: 0;
+  border-radius: 0;
+  color: var(--muted);
+  background: transparent;
+  font-size: clamp(12px, 2.7vw, 14px);
+  white-space: nowrap;
+}
+.primary-nav a:hover { background: #f7efea; color: var(--berry); }
+.primary-nav a[aria-current] { background: transparent; color: var(--berry); }
+.primary-nav a[aria-current]::after {
+  content: "";
+  position: absolute;
+  inset-inline: 22%;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: currentColor;
+}
+.primary-nav svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 #vietnam-map figure { margin: 16px auto 0; max-width: 550px; }
 #vietnam-map figure > a { display: block; border-radius: 12px; }
 #vietnam-map img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
@@ -319,9 +351,9 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   body { background: white; }
 }
 </style><main><header id="top"><span class="lantern" aria-hidden="true"></span><span class="lantern" aria-hidden="true"></span><p>VIETNAM · TRAVEL JOURNAL</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div><div>六天五夜</div></header><nav class="primary-nav" aria-label="主要導覽">
-  <a href="./" data-tab="overview">旅程總覽</a>
-  <a href="?view=d1" data-tab="days">每日行程</a>
-  <a href="?view=packing" data-tab="packing">行李清單</a>
+  <a href="./" data-tab="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h7v12H3z M14 6h7v5h-7z M14 15h7v3h-7z"/></svg>旅程總覽</a>
+  <a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v14H5z M5 10h14 M9 4v4m6-4v4 M9 14h2m2 0h2"/></svg>每日行程</a>
+  <a href="?view=packing" data-tab="packing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14v13H5z M9 7V4h6v3 M9 11v5m6-5v5"/></svg>行李清單</a>
 </nav>
 <div id="overview"><section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f6e9ce" stroke="none"/><path fill="#fffaf4" d="M7 22V12l9-6 9 6v10Z"/><path fill="#eebd9e" d="M13 22v-6h6v6"/><path d="M5 13l11-7 11 7"/></svg>住宿｜5 晚</h2><div class="hotel"><div class="small"><strong>峴港</strong> · 02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small"><strong>會安</strong> · 03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small"><strong>峴港</strong> · 03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div></section><section id="emergency"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f5e0e7" stroke="none"/><path fill="#fffaf4" d="M10 8c-3 0-4 3-3 6 2 6 6 10 12 11 3 1 5-2 5-4l-5-3-2 2c-3-1-5-3-6-6l2-2-3-4Z"/><path fill="#eaa4ad" d="M21 8c-2-3-6 0 0 5 6-5 2-8 0-5Z"/></svg>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p></section>
 <section id="vietnam-map" aria-labelledby="vietnam-map-title">
