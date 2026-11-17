@@ -180,6 +180,10 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .primary-nav a { border-color: transparent; background: transparent; }
 .primary-nav a:hover { background: var(--paper); }
 .primary-nav a[aria-current] { background: var(--berry); }
+#vietnam-map figure { margin: 16px auto 0; max-width: 550px; }
+#vietnam-map figure > a { display: block; border-radius: 12px; }
+#vietnam-map img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+#vietnam-map figcaption { margin-top: 10px; text-align: right; }
 @media (min-width: 760px) {
   #overview {
     display: grid;
@@ -188,7 +192,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
     align-items: start;
   }
   #overview section { margin: 0; }
-  #emergency { grid-column: 1 / -1; }
+  #emergency, #vietnam-map { grid-column: 1 / -1; }
   .contact { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media print {
@@ -201,7 +205,17 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <a href="?view=d1" data-tab="days">每日行程</a>
   <a href="?view=packing" data-tab="packing">行李清單</a>
 </nav>
-<div id="overview"><section id="flights"><h2>✈ 航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2>住宿｜5 晚</h2><div class="hotel"><div class="small">02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small">03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small">03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div></section><section id="emergency"><h2>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p></section></div>
+<div id="overview"><section id="flights"><h2>✈ 航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2>住宿｜5 晚</h2><div class="hotel"><div class="small">02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small">03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small">03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div></section><section id="emergency"><h2>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p></section>
+<section id="vietnam-map" aria-labelledby="vietnam-map-title">
+  <h2 id="vietnam-map-title">越南手繪地圖</h2>
+  <p class="small">這趟旅程的峴港與會安，都位於地圖上的中越。</p>
+  <figure>
+    <a href="./vietnam-illustrated-map.png" target="_blank" rel="noopener" aria-label="在新分頁開啟越南手繪地圖原圖">
+      <img src="./vietnam-illustrated-map.png" width="567" height="758" loading="lazy" alt="越南北、中、南三區的手繪地圖，標示峴港與會安位於中越。">
+    </a>
+    <figcaption class="small"><a href="./vietnam-illustrated-map.png" target="_blank" rel="noopener">查看原圖 ↗</a></figcaption>
+  </figure>
+</section></div>
 <div id="days">
 <nav class="date-nav" aria-label="選擇行程日期">
   <a href="?view=d1" data-day="d1">第 1 天<time datetime="2027-02-27">02/27</time></a>
