@@ -686,6 +686,118 @@ if (!location.search && /^#d[1-6]$/.test(location.hash)) {
   history.replaceState(null, '', '?view=' + location.hash.slice(1));
 }
 
+const panels = ['overview', 'days', 'packing'].map(id => document.getElementById(id));
+const pretrip = document.getElementById('pretrip');
+const pretripList = document.getElementById('pretrip-list');
+let pendingTotal = 0;
+for (const date of dates) {
+  const day = date.dataset.day;
+  const panel = document.getElementById(day);
+  const pending = [...panel.querySelectorAll('.event .pending, .dayhead .pending')]
+    .filter(badge => !badge.textContent.includes('椰子船及按摩'));
+  if (!pending.length) continue;
+  const count = document.createElement('span');
+  count.className = 'day-pending';
+  count.textContent = pending.length + ' 項待確認';
+  date.append(count);
+  for (const [index, badge] of pending.entries()) {
+    const target = badge.closest('.event, .dayhead');
+    target.id ||= 'pending-' + day + '-' + index;
+    target.tabIndex = -1;
+    const row = document.createElement('li');
+    const link = document.createElement('a');
+    const dayLabel = document.createElement('span');
+    const label = document.createElement('strong');
+    link.href = '?view=' + day + '#' + target.id;
+    link.dataset.itineraryLink = '';
+    dayLabel.className = 'small';
+    dayLabel.textContent = '第 ' + day.slice(1) + ' 天';
+    const title = target.querySelector('h3')?.childNodes[0]?.textContent.trim();
+    label.textContent = [title, badge.textContent.trim()].filter(Boolean).join('｜');
+    link.append(dayLabel, label);
+    row.append(link);
+    pretripList.append(row);
+    pendingTotal += 1;
+  }
+}
+document.getElementById('pretrip-count').textContent = pendingTotal + ' 項';
+pretrip.hidden = pendingTotal === 0;
+
+function focusItineraryAnchor() {
+  const id = location.hash.slice(1);
+  if (!/^(schedule|pending)-d[1-6](?:-\d+)?$/.test(id)) return;
+  const target = document.getElementById(id);
+  if (!target || target.closest('[hidden]')) return;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ behavior: 'instant' });
+}
+
+function renderView() {
+  const requested = new URLSearchParams(location.search).get('view') || location.hash.slice(1);
+  const isDay = /^d[1-6]$/.test(requested);
+  const tab = isDay ? 'days' : requested === 'packing' ? 'packing' : 'overview';
+  if (requested !== currentDay) {
+    dayAnnouncement.textContent = isDay ? '已切換到第 ' + requested.slice(1) + ' 天' : '';
+  }
+  currentDay = isDay ? requested : '';
+  if (isDay) {
+    dailyTab.href = '?view=' + requested;
+    try { sessionStorage.setItem('vn2027-last-day', requested); } catch {}
+  }
+  const heading = isDay ? document.querySelector('#' + requested + ' h2').textContent :
+    tab === 'packing' ? '行李清單' : '';
+  document.title = heading ? heading + '｜' + baseTitle : baseTitle;
+  document.getElementById('top').classList.toggle('compact', tab !== 'overview');
+  for (const panel of panels) panel.hidden = panel.id !== tab;
+  for (const link of tabs) {
+    if (link.dataset.tab === tab) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  }
+  for (const date of dates) {
+    const selected = date.dataset.day === requested;
+    document.getElementById(date.dataset.day).hidden = !selected;
+    if (selected) date.setAttribute('aria-current', 'date');
+    else date.removeAttribute('aria-current');
+  }
+  pager.hidden = !isDay;
+  returnToDates.hidden = !isDay;
+  if (!isDay) return;
+
+  const day = Number(requested.slice(1));
+  for (const link of pager.querySelectorAll('a')) {
+    const target = day + (link.rel === 'prev' ? -1 : 1);
+    link.hidden = target < 1 || target > 6;
+    if (!link.hidden) {
+      link.href = '?view=d' + target;
+      link.textContent = link.rel === 'prev' ? '← 第 ' + target + ' 天' : '第 ' + target + ' 天 →';
+      const targetDate = dates[target - 1].querySelector('time').textContent;
+      link.setAttribute('aria-label', '第 ' + target + ' 天 ' + targetDate);
+    }
+  }
+}
+
+document.addEventListener('click', event => {
+  const link = event.target.closest('[data-tab], [data-day], .day-pager a[href], .schedule-jump, [data-itinerary-link]');
+  if (!link || event.defaultPrevented || event.button !== 0 ||
+      event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+  event.preventDefault();
+  if (link.href !== location.href) history.pushState(null, '', link.href);
+  renderView();
+  if ((link.classList.contains('schedule-jump') || link.hasAttribute('data-itinerary-link')) && location.hash) {
+    focusItineraryAnchor();
+  } else if (link.hasAttribute('data-itinerary-link')) {
+    navigation.scrollIntoView({ behavior: 'instant' });
+    document.querySelector('[data-day][aria-current]').focus({ preventScroll: true });
+  } else if (pager.contains(link)) {
+    const activeDate = document.querySelector('[data-day][aria-current]');
+    activeDate.focus({ preventScroll: true });
+    document.getElementById('days').scrollIntoView({ behavior: 'instant' });
+  } else if (link.hasAttribute('data-tab') && navigation.getBoundingClientRect().top < 0) {
+    navigation.scrollIntoView({ behavior: 'instant' });
+  }
+});
+
 window.addEventListener('popstate', renderView);
 renderView();
 focusItineraryAnchor();
