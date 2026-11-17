@@ -182,7 +182,7 @@ nav a:hover, a.map:hover, .contact a:hover, button:hover { background: var(--ros
 .geo-map figcaption small { color: #715544; font-size: 11px; }
 .geo-canvas {
   position: relative;
-  min-height: 310px;
+  width: 100%;
   aspect-ratio: 64 / 39;
   background: radial-gradient(#dbc498 .65px, transparent .8px) 0 0 / 8px 8px;
 }
@@ -211,6 +211,14 @@ nav a:hover, a.map:hover, .contact a:hover, button:hover { background: var(--ros
 .geo-label, .geo-north { font-size: 11px; font-weight: 700; color: #286571; }
 .geo-sea { --x: 93%; --y: 90%; }
 .geo-north { position: absolute; right: 10px; top: 8px; }
+@media (max-width: 640px) {
+  .geo-canvas {
+    aspect-ratio: auto;
+    height: clamp(285px, 82vw, 390px);
+  }
+  .geo-canvas li { width: 25%; }
+  .geo-canvas li b { overflow-wrap: anywhere; }
+}
 .day-route {
   margin: 12px 0 6px;
   padding: 0 12px;
@@ -481,9 +489,9 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <figcaption><strong>巴拿山與峴港</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#dce6ba" d="M0 104Q55 64 116 99T237 121Q277 160 256 201T274 284Q227 339 160 321T0 350Z"/><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="13" d="M354 -10C352 66 299 119 315 171S366 229 327 280S294 355 310 405"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
     <span class="geo-north" aria-hidden="true">↑ 北</span>
-    <span class="geo-label" style="--x:49%;--y:25%">韓江</span>
-    <span class="geo-label geo-sea">南海</span><span class="geo-label" style="--x:46%;--y:25%">往峴港市區 →</span>
-    <ul aria-label="巴拿山與峴港地標"><li style="--x:19%;--y:55%"><span aria-hidden="true">⛰️</span><b>巴拿山</b></li><li style="--x:25%;--y:72%"><span aria-hidden="true">🚡</span><b>佛手橋・法國村</b></li><li style="--x:62%;--y:48%"><span aria-hidden="true">🌉</span><b>龍橋</b></li><li style="--x:80%;--y:34%"><span aria-hidden="true">🦞</span><b>My Hanh Seafood</b></li><li style="--x:78%;--y:65%"><span aria-hidden="true">🏨</span><b>M Hotel・Lim Dim Spa</b></li></ul>
+    <span class="geo-label" style="--x:49%;--y:34%">韓江</span>
+    <span class="geo-label geo-sea">南海</span><span class="geo-label" style="--x:65%;--y:16%">峴港市區</span>
+    <ul aria-label="巴拿山與峴港地標"><li style="--x:19%;--y:55%"><span aria-hidden="true">⛰️</span><b>巴拿山</b></li><li style="--x:25%;--y:72%"><span aria-hidden="true">🚡</span><b>佛手橋・法國村</b></li><li style="--x:52%;--y:53%"><span aria-hidden="true">🌉</span><b>龍橋</b></li><li style="--x:76%;--y:36%"><span aria-hidden="true">🦞</span><b>My Hanh Seafood</b></li><li style="--x:75%;--y:68%"><span aria-hidden="true">🏨</span><b>M Hotel・Lim Dim Spa</b></li></ul>
   </div>
 </figure>
 <details class="day-route">
