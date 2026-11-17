@@ -491,6 +491,16 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   #packing label.check[hidden], #packing .packing-group[hidden] { display: flex !important; }
   #packing .packing-group[hidden] { display: block !important; }
 }
+#pretrip { grid-column: 1 / -1; }
+.pretrip-list { list-style: none; padding: 0; margin: 0; }
+.pretrip-list li + li { border-top: 1px solid var(--line); }
+.pretrip-list a { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; min-height: 44px; text-decoration: none; }
+.pretrip-list a:hover strong, .overview-detail:hover { text-decoration: underline; }
+.pretrip-list .small { flex: 0 0 3.8em; }
+.overview-detail { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; text-decoration: none; }
+.date-nav .day-pending { font-size: 10px; color: inherit; margin-top: 2px; }
+.evening-choice { background: #f7efea; border-radius: 8px; padding: 8px 12px; }
+[id^="pending-d"] { scroll-margin-top: 16px; }
 </style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><header id="top"><span class="lantern" aria-hidden="true"></span><span class="lantern" aria-hidden="true"></span><p>VIETNAM · TRAVEL JOURNAL</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div><div>六天五夜</div></header><nav id="main-navigation" tabindex="-1" class="primary-nav" aria-label="主要導覽">
   <a href="./" data-tab="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h7v12H3z M14 6h7v5h-7z M14 15h7v3h-7z"/></svg>旅程總覽</a>
   <a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v14H5z M5 10h14 M9 4v4m6-4v4 M9 14h2m2 0h2"/></svg>每日行程</a>
@@ -498,8 +508,12 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 </nav>
 <div id="overview">
 <nav class="overview-links" aria-label="總覽快速跳轉">
-  <a href="#flights">航班</a><a href="#hotels">住宿</a><a href="#emergency">緊急電話</a><a href="#vietnam-map">越南手繪地圖</a>
-</nav><section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f6e9ce" stroke="none"/><path fill="#fffaf4" d="M7 22V12l9-6 9 6v10Z"/><path fill="#eebd9e" d="M13 22v-6h6v6"/><path d="M5 13l11-7 11 7"/></svg>住宿｜5 晚</h2><div class="hotel"><div class="small"><strong>峴港</strong> · 02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small"><strong>會安</strong> · 03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div><div class="hotel"><div class="small"><strong>峴港</strong> · 03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div></div></section><section id="emergency"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f5e0e7" stroke="none"/><path fill="#fffaf4" d="M10 8c-3 0-4 3-3 6 2 6 6 10 12 11 3 1 5-2 5-4l-5-3-2 2c-3-1-5-3-6-6l2-2-3-4Z"/><path fill="#eaa4ad" d="M21 8c-2-3-6 0 0 5 6-5 2-8 0-5Z"/></svg>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p></section>
+  <a href="#pretrip">待確認事項</a><a href="#flights">航班</a><a href="#hotels">住宿</a><a href="#emergency">緊急電話</a><a href="#vietnam-map">越南手繪地圖</a>
+</nav>
+<section id="pretrip" aria-labelledby="pretrip-title" hidden>
+  <h2 id="pretrip-title">待確認事項 <span class="pending" id="pretrip-count"></span></h2>
+  <ul id="pretrip-list" class="pretrip-list"></ul>
+</section><section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d6" data-itinerary-link>查看第 6 天 ↗</a></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f6e9ce" stroke="none"/><path fill="#fffaf4" d="M7 22V12l9-6 9 6v10Z"/><path fill="#eebd9e" d="M13 22v-6h6v6"/><path d="M5 13l11-7 11 7"/></svg>住宿｜5 晚</h2><div class="hotel"><div class="small"><strong>峴港</strong> · 02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div></div><div class="hotel"><div class="small"><strong>會安</strong> · 03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d3" data-itinerary-link>查看第 3 天 ↗</a></div></div><div class="hotel"><div class="small"><strong>峴港</strong> · 03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d5" data-itinerary-link>查看第 5 天 ↗</a></div></div></section><section id="emergency"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f5e0e7" stroke="none"/><path fill="#fffaf4" d="M10 8c-3 0-4 3-3 6 2 6 6 10 12 11 3 1 5-2 5-4l-5-3-2 2c-3-1-5-3-6-6l2-2-3-4Z"/><path fill="#eaa4ad" d="M21 8c-2-3-6 0 0 5 6-5 2-8 0-5Z"/></svg>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p></section>
 <section id="vietnam-map" aria-labelledby="vietnam-map-title">
   <h2 id="vietnam-map-title"><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#e7edda" stroke="none"/><path fill="#fffaf4" d="m7 12 6-2 6 2 6-2v13l-6 2-6-2-6 2Z"/><path d="M13 10v13m6-11v13"/><path fill="#eaa4ad" d="M22 9c0 3-4 6-4 6s-4-3-4-6a4 4 0 0 1 8 0Z"/></svg>越南手繪地圖</h2>
   <p class="small">這趟旅程的峴港與會安，都位於地圖上的中越。</p>
@@ -568,7 +582,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   </ul>
   <p class="small">園區內按「黃金佛手橋 → 花園 → 轉乘纜車 → 法國村」走，依現場指標轉乘。</p>
 </details>
-<div class="event" id="schedule-d2" tabindex="-1"><div class="time">07:30</div><div><h3>早餐、出發</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">09:00</div><div><h3>巴拿山纜車</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sun+World+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">09:45</div><div><h3>黃金佛手橋</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Bridge+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">11:00</div><div><h3>花園散策</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Le+Jardin+d%E2%80%99Amour+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">12:00</div><div><h3>轉乘到法國村 → 午餐 → 逛法國村</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=French+Village+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">15:30</div><div><h3>下山返回峴港</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">18:30</div><div><h3>晚餐｜My Hanh Seafood<span class="michelin">米其林指南入選</span></h3></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=My+Hanh+Seafood+Da+Nang" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">20:30</div><div><h3>晚餐後選項一｜足腿按摩（60 分鐘）</h3><div class="small">Lim Dim Spa｜M Hotel Danang 27 樓 <span class="pending">療程與時段待確認</span></div></div><a class="map" href="https://mhotel.vn/property/m-hotel-da-nang/" target="_blank" rel="noopener noreferrer">飯店官網 ↗</a></div><div class="event"><div class="time">21:00</div><div><h3>晚餐後選項二｜龍橋與韓江夜景</h3><div class="small">噴火活動通常於週日 21:00 開始，場次出發前再確認。</div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Dragon+Bridge+Da+Nang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><p class="small overnight"><span>今晚住宿：M Hotel Danang</span> <span class="booked">已訂</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer" aria-label="查看 M Hotel Danang 的地圖">地圖 ↗</a></p><p class="small">雨霧備案：改市區咖啡、按摩及室內活動。</p></section><section id="d3"><div class="dayhead"><div class="daynum">DAY 03 · 03/01（一）</div><h2>五行山・會安古城</h2><div class="small">建議包車跨城</div></div>
+<div class="event" id="schedule-d2" tabindex="-1"><div class="time">07:30</div><div><h3>早餐、出發</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">09:00</div><div><h3>巴拿山纜車</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Sun+World+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">09:45</div><div><h3>黃金佛手橋</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Golden+Bridge+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">11:00</div><div><h3>花園散策</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Le+Jardin+d%E2%80%99Amour+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">12:00</div><div><h3>轉乘到法國村 → 午餐 → 逛法國村</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=French+Village+Ba+Na+Hills+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">15:30</div><div><h3>下山返回峴港</h3><div class="small"></div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><div class="event"><div class="time">18:30</div><div><h3>晚餐｜My Hanh Seafood<span class="michelin">米其林指南入選</span></h3></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=My+Hanh+Seafood+Da+Nang" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><p class="evening-choice small"><strong>晚餐後二選一</strong>｜按摩或龍橋夜景</p><div class="event"><div class="time">20:30</div><div><h3>晚餐後選項一｜足腿按摩（60 分鐘）</h3><div class="small">Lim Dim Spa｜M Hotel Danang 27 樓 <span class="pending">療程與時段待確認</span></div></div><a class="map" href="https://mhotel.vn/property/m-hotel-da-nang/" target="_blank" rel="noopener noreferrer">飯店官網 ↗</a></div><div class="event"><div class="time">21:00</div><div><h3>晚餐後選項二｜龍橋與韓江夜景</h3><div class="small">噴火活動通常於週日 21:00 開始，場次出發前再確認。</div></div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Dragon+Bridge+Da+Nang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a></div><p class="small overnight"><span>今晚住宿：M Hotel Danang</span> <span class="booked">已訂</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer" aria-label="查看 M Hotel Danang 的地圖">地圖 ↗</a></p><p class="small">雨霧備案：改市區咖啡、按摩及室內活動。</p></section><section id="d3"><div class="dayhead"><div class="daynum">DAY 03 · 03/01（一）</div><h2>五行山・會安古城</h2><div class="small">建議包車跨城</div></div>
 <figure class="geo-map">
   <figcaption><strong>峴港到會安</strong><small>地理位置示意・北向上・非等比例</small></figcaption>
   <div class="geo-canvas"><svg viewBox="0 0 640 390" preserveAspectRatio="none" aria-hidden="true"><path fill="#bfe6e9" d="M515 0H640V390H550Q536 315 531 229Q525 177 507 120Q499 90 515 0Z"/><path fill="none" stroke="#91c9d2" stroke-width="17" d="M-20 300C82 350 147 268 236 295S384 376 476 310S566 268 660 295"/><path fill="none" stroke="#76b6c6" stroke-width="2.5" stroke-linecap="round" d="M562 113q9 9 18 0q9 9 18 0m-11 125q9 9 18 0q9 9 18 0m-57 86q9 9 18 0q9 9 18 0"/></svg>
@@ -645,7 +659,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <a rel="prev">← 前一天</a>
   <a rel="next">後一天 →</a>
 </nav>
-<p class="small">除航班外，時間為依原始行程擬定的建議時間，並非預約。地圖採名稱搜尋，<span class="pending">餐廳、SPA、分店及接送仍待確認</span>。</p></div>
+<p class="small">除航班外，時間為依原始行程擬定的建議時間，並非預約。地圖採名稱搜尋。預約及交通待辦請見旅程總覽。</p></div>
 <section id="packing"><h2>要帶的東西</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a><a href="#top">回到頂部 ↑</a></footer></main><script>
 const dates = [...document.querySelectorAll('[data-day]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
@@ -682,6 +696,51 @@ copyDay.addEventListener('click', async () => {
   }
 });
 const panels = ['overview', 'days', 'packing'].map(id => document.getElementById(id));
+
+const pretrip = document.getElementById('pretrip');
+const pretripList = document.getElementById('pretrip-list');
+let pendingTotal = 0;
+for (const date of dates) {
+  const day = date.dataset.day;
+  const panel = document.getElementById(day);
+  const pending = [...panel.querySelectorAll('.event .pending, .dayhead .pending')]
+    .filter(badge => !badge.textContent.includes('椰子船及按摩'));
+  if (!pending.length) continue;
+  const count = document.createElement('span');
+  count.className = 'day-pending';
+  count.textContent = pending.length + ' 項待確認';
+  date.append(count);
+  for (const [index, badge] of pending.entries()) {
+    const target = badge.closest('.event, .dayhead');
+    target.id ||= 'pending-' + day + '-' + index;
+    target.tabIndex = -1;
+    const row = document.createElement('li');
+    const link = document.createElement('a');
+    const dayLabel = document.createElement('span');
+    const label = document.createElement('strong');
+    link.href = '?view=' + day + '#' + target.id;
+    link.dataset.itineraryLink = '';
+    dayLabel.className = 'small';
+    dayLabel.textContent = '第 ' + day.slice(1) + ' 天';
+    const title = target.querySelector('h3')?.childNodes[0]?.textContent.trim();
+    label.textContent = [title, badge.textContent.trim()].filter(Boolean).join('｜');
+    link.append(dayLabel, label);
+    row.append(link);
+    pretripList.append(row);
+    pendingTotal += 1;
+  }
+}
+document.getElementById('pretrip-count').textContent = pendingTotal + ' 項';
+pretrip.hidden = pendingTotal === 0;
+
+function focusItineraryAnchor() {
+  const id = location.hash.slice(1);
+  if (!/^(schedule|pending)-d[1-6](?:-\d+)?$/.test(id)) return;
+  const target = document.getElementById(id);
+  if (!target || target.closest('[hidden]')) return;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ behavior: 'instant' });
+}
 
 function renderView() {
   const requested = new URLSearchParams(location.search).get('view') || location.hash.slice(1);
@@ -730,17 +789,18 @@ function renderView() {
 }
 
 document.addEventListener('click', event => {
-  const link = event.target.closest('[data-tab], [data-day], .day-pager a[href], .schedule-jump');
+  const link = event.target.closest('[data-tab], [data-day], .day-pager a[href], .schedule-jump, [data-itinerary-link]');
   if (!link || event.defaultPrevented || event.button !== 0 ||
       event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
   event.preventDefault();
   if (link.href !== location.href) history.pushState(null, '', link.href);
   renderView();
-  if (link.classList.contains('schedule-jump')) {
-    const target = document.getElementById(new URL(link.href).hash.slice(1));
-    target.focus({ preventScroll: true });
-    target.scrollIntoView({ behavior: 'instant' });
+  if ((link.classList.contains('schedule-jump') || link.hasAttribute('data-itinerary-link')) && location.hash) {
+    focusItineraryAnchor();
+  } else if (link.hasAttribute('data-itinerary-link')) {
+    navigation.scrollIntoView({ behavior: 'instant' });
+    document.querySelector('[data-day][aria-current]').focus({ preventScroll: true });
   } else if (pager.contains(link)) {
     const activeDate = document.querySelector('[data-day][aria-current]');
     activeDate.focus({ preventScroll: true });
@@ -752,10 +812,7 @@ document.addEventListener('click', event => {
 
 window.addEventListener('popstate', renderView);
 renderView();
-if (/^#schedule-d[1-6]$/.test(location.hash)) {
-  const target = document.getElementById(location.hash.slice(1));
-  if (target && !target.closest('[hidden]')) target.scrollIntoView({ behavior: 'instant' });
-}
+focusItineraryAnchor();
 </script>
 <script>
 const checks = [...document.querySelectorAll('#packing input[data-save]')];
