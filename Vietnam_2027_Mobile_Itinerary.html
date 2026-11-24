@@ -540,6 +540,19 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 }
 #d4 .geo-canvas ul { position: relative; z-index: 2; }
 #d4 .geo-canvas ul { position: static; }
+
+.copy-place { font-size: 12px; min-height: 40px; padding: 5px 9px; cursor: pointer; }
+.hotel-contact { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 5px; }
+.emergency-extra { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; }
+.emergency-extra h3 { margin-top: 14px; }
+.emergency-extra a[href^="tel:"] { display: inline-flex; min-height: 40px; align-items: center; font-variant-numeric: tabular-nums; }
+.event > .copy-place { grid-column: 2 / -1; justify-self: start; margin-top: -10px; }
+.copy-feedback { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 10; padding: 10px 18px; border-radius: 10px; background: var(--berry); color: white; max-width: 90vw; }
+#place-copy-dialog { width: min(90vw, 440px); border: 1px solid var(--line); border-radius: 14px; padding: 20px; color: var(--ink); background: var(--paper); }
+#place-copy-dialog::backdrop { background: rgb(40 25 25 / 35%); }
+#place-copy-dialog form { text-align: right; }
+#place-copy-text { width: 100%; min-height: 90px; padding: 10px; font: inherit; }
+@media print { .copy-place, .copy-feedback, #place-copy-dialog { display: none !important; } }
 </style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><header id="top"><span class="lantern" aria-hidden="true"></span><span class="lantern" aria-hidden="true"></span><p>VIETNAM · TRAVEL JOURNAL</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div><div>六天五夜</div></header><nav id="main-navigation" tabindex="-1" class="primary-nav" aria-label="主要導覽">
   <a href="./" data-tab="overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h7v12H3z M14 6h7v5h-7z M14 15h7v3h-7z"/></svg>旅程總覽</a>
   <a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v14H5z M5 10h14 M9 4v4m6-4v4 M9 14h2m2 0h2"/></svg>每日行程</a>
@@ -552,7 +565,16 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 <section id="pretrip" aria-labelledby="pretrip-title" hidden>
   <h2 id="pretrip-title">待確認事項 <span class="pending" id="pretrip-count"></span></h2>
   <ul id="pretrip-list" class="pretrip-list"></ul>
-</section><section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d6" data-itinerary-link>查看第 6 天 ↗</a></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f6e9ce" stroke="none"/><path fill="#fffaf4" d="M7 22V12l9-6 9 6v10Z"/><path fill="#eebd9e" d="M13 22v-6h6v6"/><path d="M5 13l11-7 11 7"/></svg>住宿｜5 晚</h2><div class="hotel"><div class="small"><strong>峴港</strong> · 02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div></div><div class="hotel"><div class="small"><strong>會安</strong> · 03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d3" data-itinerary-link>查看第 3 天 ↗</a></div></div><div class="hotel"><div class="small"><strong>峴港</strong> · 03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d5" data-itinerary-link>查看第 5 天 ↗</a></div></div></section><section id="emergency"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f5e0e7" stroke="none"/><path fill="#fffaf4" d="M10 8c-3 0-4 3-3 6 2 6 6 10 12 11 3 1 5-2 5-4l-5-3-2 2c-3-1-5-3-6-6l2-2-3-4Z"/><path fill="#eaa4ad" d="M21 8c-2-3-6 0 0 5 6-5 2-8 0-5Z"/></svg>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p></section>
+</section><section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d6" data-itinerary-link>查看第 6 天 ↗</a></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><section id="hotels"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f6e9ce" stroke="none"/><path fill="#fffaf4" d="M7 22V12l9-6 9 6v10Z"/><path fill="#eebd9e" d="M13 22v-6h6v6"/><path d="M5 13l11-7 11 7"/></svg>住宿｜5 晚</h2><div class="hotel"><div class="small"><strong>峴港</strong> · 02/27–03/01 · 2 晚</div><strong>M Hotel Danang</strong><span class="booked">已訂</span><div class="small" lang="vi">M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng, Việt Nam</div><div class="hotel-contact"><a class="map" href="tel:+842363816868">致電飯店</a> <button type="button" class="copy-place" data-copy="M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng, Việt Nam">複製越南文地址</button> <a href="https://mhotel.vn/property/m-hotel-da-nang/" target="_blank" rel="noopener noreferrer">官網 ↗</a></div><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=M+Hotel+Danang+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div></div><div class="hotel"><div class="small"><strong>會安</strong> · 03/01–03/03 · 2 晚</div><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><span class="booked">已訂</span><div class="small" lang="vi">Laluna Hoi An Riverside Hotel &amp; Spa — 12 Nguyễn Du, Hội An, Đà Nẵng, Việt Nam</div><div class="hotel-contact"><a class="map" href="tel:+842353666678">致電飯店</a> <button type="button" class="copy-place" data-copy="Laluna Hoi An Riverside Hotel &amp; Spa — 12 Nguyễn Du, Hội An, Đà Nẵng, Việt Nam">複製越南文地址</button> <a href="https://lalunahoian.com/contact-us/" target="_blank" rel="noopener noreferrer">官網 ↗</a></div><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Laluna+Hoi+An+Riverside+Hotel+%26+Spa+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d3" data-itinerary-link>查看第 3 天 ↗</a></div></div><div class="hotel"><div class="small"><strong>峴港</strong> · 03/03–03/04 · 1 晚</div><strong>voco Ma Belle Danang by IHG</strong><span class="booked">已訂</span><div class="small" lang="vi">voco Ma Belle Danang by IHG — 168 Võ Nguyên Giáp, Đà Nẵng, Việt Nam</div><div class="hotel-contact"><a class="map" href="tel:+842363939969">致電飯店</a> <button type="button" class="copy-place" data-copy="voco Ma Belle Danang by IHG — 168 Võ Nguyên Giáp, Đà Nẵng, Việt Nam">複製越南文地址</button> <a href="https://www.ihg.com/voco/hotels/vn/vi/da-nang-city/dadmb/hoteldetail/directions" target="_blank" rel="noopener noreferrer">官網 ↗</a></div><div><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=voco+Ma+Belle+Danang+by+IHG+Vietnam" target="_blank" rel="noopener noreferrer">地圖 ↗</a> <a class="overview-detail" href="?view=d5" data-itinerary-link>查看第 5 天 ↗</a></div></div></section><section id="emergency"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#f5e0e7" stroke="none"/><path fill="#fffaf4" d="M10 8c-3 0-4 3-3 6 2 6 6 10 12 11 3 1 5-2 5-4l-5-3-2 2c-3-1-5-3-6-6l2-2-3-4Z"/><path fill="#eaa4ad" d="M21 8c-2-3-6 0 0 5 6-5 2-8 0-5Z"/></svg>緊急聯絡電話</h2><div class="contact"><a href="tel:113">警察<strong>113</strong></a><a href="tel:114">消防<strong>114</strong></a><a href="tel:115">救護車<strong>115</strong></a><a href="tel:112">緊急搜救<strong>112</strong></a></div><p class="small">越南當地電話，主要使用越南語。<a href="https://www.gov.uk/foreign-travel-advice/vietnam/getting-help">資料來源</a></p><div class="emergency-extra">
+<h3>台灣旅客急難協助</h3>
+<p><strong>駐胡志明市辦事處（峴港、會安）</strong><br><a href="tel:+84903927019">+84 903 927 019</a></p>
+<p>駐越南代表處（河內、順化以北）<br><a href="tel:+84913219986">+84 913 219 986</a></p>
+<p>外交部緊急聯絡中心（台灣境內親友撥打）<br><a href="tel:0800085095">0800-085-095</a></p>
+<p class="small"><a href="https://www.boca.gov.tw/sp-trwa-print-3127-c0824-1.html" target="_blank" rel="noopener noreferrer">外交部聯絡資料與轄區 ↗</a></p>
+<h3>旅平險 24 小時海外救援</h3>
+<p class="small">承保公司及救援電話待補，請依保單上的海外急難救助電話聯絡。</p>
+<h3>住宿電話</h3>
+<p><strong>M Hotel Danang</strong><br><a href="tel:+842363816868">+84 236 3816 868</a><br><span class="small" lang="vi">M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng, Việt Nam</span><br><button type="button" class="copy-place" data-copy="M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng, Việt Nam">複製越南文地址</button></p><p><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><br><a href="tel:+842353666678">+84 235 366 6678</a><br><span class="small" lang="vi">Laluna Hoi An Riverside Hotel &amp; Spa — 12 Nguyễn Du, Hội An, Đà Nẵng, Việt Nam</span><br><button type="button" class="copy-place" data-copy="Laluna Hoi An Riverside Hotel &amp; Spa — 12 Nguyễn Du, Hội An, Đà Nẵng, Việt Nam">複製越南文地址</button></p><p><strong>voco Ma Belle Danang by IHG</strong><br><a href="tel:+842363939969">+84 236 3939 969</a><br><span class="small" lang="vi">voco Ma Belle Danang by IHG — 168 Võ Nguyên Giáp, Đà Nẵng, Việt Nam</span><br><button type="button" class="copy-place" data-copy="voco Ma Belle Danang by IHG — 168 Võ Nguyên Giáp, Đà Nẵng, Việt Nam">複製越南文地址</button></p></div></section>
 <section id="vietnam-map" aria-labelledby="vietnam-map-title">
   <h2 id="vietnam-map-title"><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#e7edda" stroke="none"/><path fill="#fffaf4" d="m7 12 6-2 6 2 6-2v13l-6 2-6-2-6 2Z"/><path d="M13 10v13m6-11v13"/><path fill="#eaa4ad" d="M22 9c0 3-4 6-4 6s-4-3-4-6a4 4 0 0 1 8 0Z"/></svg>越南手繪地圖</h2>
   <p class="small">這趟旅程的峴港與會安，都位於地圖上的中越。</p>
@@ -694,7 +716,8 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   <a rel="next">後一天 →</a>
 </nav>
 <p class="small">除航班外，時間為依原始行程擬定的建議時間，並非預約。地圖採名稱搜尋。預約及交通待辦請見旅程總覽。</p></div>
-<section id="packing"><h2>要帶的東西</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><label class="check"><input type="checkbox" data-save="p17"><span>小電風扇</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a><a href="#top">回到頂部 ↑</a></footer></main><script>
+<section id="packing"><h2>要帶的東西</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><label class="check"><input type="checkbox" data-save="p17"><span>小電風扇</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a><a href="#top">回到頂部 ↑</a></footer></main><div class="copy-feedback" id="place-copy-status" role="status" hidden></div>
+<dialog id="place-copy-dialog"><form method="dialog"><button type="submit">關閉</button></form><p>長按下方文字即可複製</p><textarea id="place-copy-text" readonly aria-label="店名或地址"></textarea></dialog><script>
 const dates = [...document.querySelectorAll('[data-day]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
 const pager = document.querySelector('.day-pager');
@@ -921,4 +944,63 @@ window.addEventListener('storage', event => {
   updatePacking();
 });
 updatePacking();
-</script></html>
+</script>
+<script>
+const nativePlaces = [
+  ['M Hotel', 'M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng'],
+  ['Laluna', 'Laluna Hoi An Riverside Hotel & Spa — 12 Nguyễn Du, Hội An'],
+  ['voco', 'voco Ma Belle Danang — 168 Võ Nguyên Giáp, Đà Nẵng'],
+  ['Da Nang International Airport', 'Sân bay quốc tế Đà Nẵng — Nhà ga quốc tế T2'],
+  ['Taoyuan', '桃園國際機場第二航廈'],
+  ['Marble Mountains', 'Ngũ Hành Sơn, Đà Nẵng'],
+  ['Golden Bridge', 'Cầu Vàng, Bà Nà Hills, Đà Nẵng'],
+  ['Sun World Ba Na', 'Sun World Bà Nà Hills, Đà Nẵng'],
+  ['French Village', 'Làng Pháp, Bà Nà Hills'],
+  ['Han Market', 'Chợ Hàn, Đà Nẵng'],
+  ['Dragon Bridge', 'Cầu Rồng, Đà Nẵng'],
+  ['Japanese Covered', 'Chùa Cầu, Hội An'],
+  ['Fujian Assembly', 'Hội quán Phúc Kiến, Hội An'],
+  ['Tan Ky', 'Nhà cổ Tấn Ký, Hội An'],
+  ['An Bang', 'Bãi biển An Bàng, Hội An'],
+  ['My Khe', 'Bãi biển Mỹ Khê, Đà Nẵng'],
+  ['Linh Ung', 'Chùa Linh Ứng, bán đảo Sơn Trà, Đà Nẵng'],
+  ['Hoi An Night Market', 'Chợ đêm Hội An'],
+  ['Bep Cuon', 'Bếp Cuốn — 31–33 Trần Bạch Đằng, Đà Nẵng'],
+  ['My Hanh', 'Hải sản Mỹ Hạnh — 3–5 Võ Nguyên Giáp, Đà Nẵng'],
+  ['La Spa', 'La Spa Hoi An — 132 Hùng Vương, Hội An']
+];
+for (const event of document.querySelectorAll('.event')) {
+  const map = event.querySelector('a[href*="/maps/search/"]');
+  if (!map) continue;
+  const query = new URL(map.href).searchParams.get('query');
+  if (!query) continue;
+  const match = nativePlaces.find(([key]) => query.includes(key));
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'copy-place';
+  button.dataset.copy = match ? match[1] : query;
+  button.textContent = match ? '複製店名／地址' : '複製地點名稱';
+  event.append(button);
+}
+const copyFeedback = document.getElementById('place-copy-status');
+const copyDialog = document.getElementById('place-copy-dialog');
+const copyText = document.getElementById('place-copy-text');
+let feedbackTimer;
+document.addEventListener('click', async event => {
+  const button = event.target.closest('[data-copy]');
+  if (!button) return;
+  try {
+    await navigator.clipboard.writeText(button.dataset.copy);
+    copyFeedback.textContent = '已複製店名／地址';
+    copyFeedback.hidden = false;
+    clearTimeout(feedbackTimer);
+    feedbackTimer = setTimeout(() => { copyFeedback.hidden = true; }, 2200);
+  } catch {
+    copyText.value = button.dataset.copy;
+    copyDialog.showModal();
+    copyText.focus();
+    copyText.select();
+  }
+});
+</script>
+</html>
