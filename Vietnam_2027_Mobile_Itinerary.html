@@ -503,7 +503,6 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .emergency-extra { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 16px; }
 .emergency-extra h3 { margin-top: 14px; }
 .emergency-extra a[href^="tel:"] { display: inline-flex; min-height: 40px; align-items: center; font-variant-numeric: tabular-nums; }
-.event > .copy-place { grid-column: 2 / -1; justify-self: start; margin-top: -10px; }
 .copy-feedback { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); z-index: 10; padding: 10px 18px; border-radius: 10px; background: var(--berry); color: white; max-width: 90vw; }
 #place-copy-dialog { width: min(90vw, 440px); border: 1px solid var(--line); border-radius: 14px; padding: 20px; color: var(--ink); background: var(--paper); }
 #place-copy-dialog::backdrop { background: rgb(40 25 25 / 35%); }
@@ -1002,19 +1001,6 @@ const nativePlaces = [
   ['My Hanh', 'Hải sản Mỹ Hạnh — 3–5 Võ Nguyên Giáp, Đà Nẵng'],
   ['La Spa', 'La Spa Hoi An — 132 Hùng Vương, Hội An']
 ];
-for (const event of document.querySelectorAll('.event')) {
-  const map = event.querySelector('a[href*="/maps/search/"]');
-  if (!map) continue;
-  const query = new URL(map.href).searchParams.get('query');
-  if (!query) continue;
-  const match = nativePlaces.find(([key]) => query.includes(key));
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.className = 'copy-place';
-  button.dataset.copy = match ? match[1] : query;
-  button.textContent = match ? '複製店名／地址' : '複製地點名稱';
-  event.append(button);
-}
 const copyFeedback = document.getElementById('place-copy-status');
 const copyDialog = document.getElementById('place-copy-dialog');
 const copyText = document.getElementById('place-copy-text');
