@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#293f37"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/app-icon.png"><title>峴港・會安｜2027 旅行手冊</title>
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#293f37"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/app-icon.png"><link rel="icon" type="image/png" href="/app-icon.png"><title>峴港・會安｜2027 旅行手冊</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@700&display=swap">
@@ -240,7 +240,7 @@ footer a { display: inline-flex; align-items: center; min-height: 44px; }
   padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 10px;
-  background: #f7efea;
+  background: var(--surface);
 }
 .day-route summary { padding: 10px 0; color: var(--berry); font-weight: 700; cursor: pointer; }
 .day-route ul { list-style: none; padding: 0; margin: 0; }
@@ -339,7 +339,7 @@ a.booking-link:hover { background: #ead5cd; }
   margin: 12px 0 0;
   padding: 10px 12px;
   border-radius: 8px;
-  background: #f7efea;
+  background: var(--surface);
 }
 .overnight .booked { margin-inline-start: 0; }
 .overnight .map { margin-inline-start: auto; }
@@ -387,7 +387,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 #flights > div:not(.flight) {
   padding: 12px 14px;
   margin-top: 10px;
-  background: #f7efea;
+  background: var(--surface);
   border-radius: 8px;
 }
 #flights ul { margin: 3px 0 0; padding-left: 1.3em; }
@@ -405,7 +405,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .overview-links { grid-column: 1 / -1; margin: 16px 0 20px; gap: 8px; }
 .overview-links a { font-size: 13px; min-height: 44px; border-radius: 999px; padding-inline: 13px; }
 .overview-links a[href="#pretrip"] { background: #f9e4cb; color: #713b15; border-color: #e8c6a5; }
-.packing-progress { background: #f7efea; padding: 10px 12px; border-radius: 8px; }
+.packing-progress { background: var(--surface); padding: 10px 12px; border-radius: 8px; }
 .packing-progress p { margin: 0 0 4px; }
 .packing-progress progress { display: block; width: 100%; height: 10px; accent-color: var(--berry); }
 #reset:disabled { opacity: .55; cursor: default; }
@@ -447,7 +447,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 .packing-filter { display: flex; align-items: center; gap: 8px; min-height: 44px; margin-block: 8px; cursor: pointer; }
 .packing-group { margin-top: 16px; }
-.packing-group-count { float: inline-end; line-height: 1.6; padding: 0 8px; border-radius: 999px; background: #f7efea; font-weight: 650; font-variant-numeric: tabular-nums; }
+.packing-group-count { float: inline-end; line-height: 1.6; padding: 0 8px; border-radius: 999px; background: var(--surface); font-weight: 650; font-variant-numeric: tabular-nums; }
 @media print {
   .packing-filter { display: none; }
   #packing label.check[hidden], #packing .packing-group[hidden] { display: flex !important; }
@@ -458,7 +458,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .pretrip-list li + li { border-top: 1px solid var(--line); }
 .pretrip-list a { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; min-height: 44px; text-decoration: none; }
 .pretrip-list a:hover strong, .overview-detail:hover { text-decoration: underline; }
-.pretrip-list .small { flex: 0 0 3.8em; text-align: center; padding: 2px 4px; border-radius: 5px; background: #f7efea; }
+.pretrip-list .small { flex: 0 0 3.8em; text-align: center; padding: 2px 4px; border-radius: 5px; background: var(--surface); }
 .pretrip-list strong { overflow-wrap: anywhere; }
 .overview-detail { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; text-decoration: none; }
 .date-nav .day-pending {
@@ -469,7 +469,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
   color: #713b15;
   font-size: 10px;
 }
-.evening-choice { background: #f7efea; border-radius: 8px; padding: 8px 12px; }
+.evening-choice { background: var(--surface); border-radius: 8px; padding: 8px 12px; }
 [id^="pending-d"] { scroll-margin-top: 16px; }
 .old-town-boundary {
   position: absolute;
@@ -531,7 +531,7 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
  .dashboard-days { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media print { .mobile-nav, .trip-dashboard { display: none; } }
-.trip-facts > span { flex: 1 1 100px; padding: 12px; border-radius: 10px; background: #f7efea; }
+.trip-facts > span { flex: 1 1 100px; padding: 12px; border-radius: 10px; background: var(--surface); }
 .trip-facts strong { margin-top: 5px; font-size: 22px; }
 .stay-route { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding: 0; margin: 20px 0 24px; list-style: none; }
 .stay-route li { position: relative; display: grid; justify-items: center; gap: 4px; padding-top: 26px; }
@@ -540,52 +540,147 @@ header.compact .lantern + .lantern { top: 37px; width: 19px; }
 .stay-route strong { font-size: 22px; font-family: "LXGW WenKai TC", serif; }
 .stay-route span { font-size: 14px; color: var(--muted); }
 
-:root { --ink:#202b26; --muted:#6c746e; --berry:#355548; --rose:#edf2ee; --paper:#ffffff; --line:#e7eae7; }
-body { background:#fafbfa; font-weight:400; }
-main { max-width:820px; margin:24px auto; padding:14px 14px 90px; background:white; border:1px solid var(--line); border-radius:18px; }
-header, header.compact { padding:0; margin:0 0 12px; border:0; border-radius:14px; box-shadow:none; background:#293f37; }
-.cover-photo { position:relative; margin:0; }
-.cover-photo img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:14px 14px 0 0; }
-.cover-photo a { position:absolute; bottom:8px; left:8px; background:rgb(30 45 38 / 65%); color:white; border-radius:20px; padding:2px 7px; font-size:10px; }
-.cover-caption { padding:16px; color:#f8faf8; }
-header p { color:#d1ded5; font-size:10px; letter-spacing:.08em; }
-header h1, header.compact h1 { font:700 25px/1.3 system-ui,"PingFang TC",sans-serif; margin:5px 0; letter-spacing:0; }
-.cover-caption div { font-size:12px; font-weight:400; }
-header.compact .cover-photo { display:none; }
-section { border-radius:12px; box-shadow:none; }
-.trip-dashboard { padding:0; margin:0 0 20px; border:0; }
-.trip-dashboard > h2, .trip-dashboard > p { display:none; }
-.trip-facts { gap:8px; margin:0 0 18px; }
-.trip-facts > span { background:#fafbfa; flex:1; min-width:0; font-size:11px; padding:12px; }
-.trip-facts > span:last-child { display:none; }
-.trip-facts strong { color:#202b26; font-size:23px; }
-.stay-route { padding:18px 0 24px; border-bottom:1px solid var(--line); }
-.stay-route strong { font:700 25px/1.3 system-ui,"PingFang TC",sans-serif; }
-.stay-route li::before { background:#789182; }
-.stay-route span { font-size:18px; }
-.trip-dashboard h3 { font-size:14px; font-weight:600; }
-.dashboard-days { display:flex; flex-direction:column; gap:0; }
-.dashboard-days a { display:grid; grid-template-columns:40px 1fr 16px; column-gap:10px; border:0; border-radius:8px; padding:10px 0; color:var(--ink); }
-.dashboard-days a:hover { background:#f7faf7; }
-.day-index { grid-column:1; grid-row:1 / 3; align-self:center; display:grid; place-items:center; height:36px; border-radius:7px; background:#fafbfa; font-size:15px; font-weight:600; }
-.dashboard-days small { grid-column:2; grid-row:1; font-size:14px; color:var(--ink); font-weight:600; }
-.dashboard-days strong { grid-column:2; grid-row:2; font-size:11px; font-weight:400; color:var(--muted); }
-.dashboard-days a::after { content:"›"; grid-column:3; grid-row:1 / 3; align-self:center; color:var(--muted); }
-#overview { display:block; }
-.mobile-nav { position:fixed; z-index:8; bottom:0; left:50%; transform:translateX(-50%); width:min(100%,820px); display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0; margin:0; padding:8px 8px calc(8px + env(safe-area-inset-bottom)); background:white; border:1px solid var(--line); border-radius:12px 12px 0 0; }
-.mobile-nav a { flex-direction:column; gap:3px; color:var(--muted); min-height:46px; border:0; background:transparent; box-shadow:none; padding:3px; font-size:18px; }
-.mobile-nav a span { font-size:11px; }
-.mobile-nav a[aria-current] { color:var(--berry); background:#f1f5f1; }
-.deadline-hint, #pretrip small { font-size:11px; color:var(--muted); font-weight:400; }
-.pretrip-list input { border-radius:50%; }
-#booking h2 { font:600 19px/1.5 system-ui,"PingFang TC",sans-serif; }
-.backup-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0; }
-.backup-actions button,.backup-actions label { min-height:44px; }
-.next-stop { flex-wrap:wrap; display:flex; justify-content:space-between; align-items:center; gap:8px; padding:10px; background:#f1f5f1; border-radius:8px; margin:10px 0; }
-@media(max-width:640px) { main { margin:0; border:0; border-radius:0; padding:12px 12px calc(90px + env(safe-area-inset-bottom)); } .mobile-nav { left:0; transform:none; } }
-@media print { .mobile-nav,.backup-actions { display:none !important; } }
-.next-stop select { flex:1 1 180px; min-width:0; max-width:100%; padding:9px; border:1px solid var(--line); border-radius:6px; background:white; color:var(--ink); font:inherit; font-size:13px; }
-#main-navigation:focus { outline: none; }
+/* Green travel journal: shared typography, surfaces and controls. */
+:root {
+  --ink: #23352c;
+  --muted: #637268;
+  --berry: #355c49;
+  --rose: #edf4ee;
+  --paper: #ffffff;
+  --line: #e2eae3;
+  --surface: #f5f8f4;
+}
+body { background: #f3f6f2; font-weight: 400; -webkit-font-smoothing: antialiased; }
+main { max-width: 840px; margin: 28px auto; padding: 20px 20px 108px; background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
+header, header.compact { padding: 0; margin: 0 0 18px; border: 0; border-radius: 14px; box-shadow: none; background: #293f37; }
+.cover-photo { position: relative; margin: 0; }
+.cover-photo img { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; border-radius: 14px 14px 0 0; }
+.cover-photo a { position: absolute; bottom: 9px; left: 10px; background: rgb(30 45 38 / 70%); color: white; border-radius: 5px; padding: 2px 7px; font-size: 10px; font-weight: 400; }
+.cover-caption { padding: 20px 22px 23px; color: #f8faf8; }
+header p { color: #cfddd2; font-size: 10px; letter-spacing: .13em; font-weight: 600; }
+header h1, header.compact h1 { font: 650 30px/1.35 system-ui, "PingFang TC", sans-serif; margin: 7px 0; letter-spacing: .035em; }
+.cover-caption div { font-size: 13px; font-weight: 400; letter-spacing: .025em; }
+header.compact .cover-photo { display: none; }
+header.compact .cover-caption { padding: 16px 20px 18px; }
+header.compact h1 { font-size: 24px; margin-block: 4px; }
+section { border-radius: 14px; box-shadow: none; margin-block: 20px; }
+section > h2 { font: 600 21px/1.5 system-ui, "PingFang TC", sans-serif; margin-bottom: 16px; letter-spacing: .015em; }
+.small { line-height: 1.8; }
+a.map, button, nav a { transition: background-color .16s ease, border-color .16s ease, color .16s ease; }
+a.map, button { border-radius: 8px; min-height: 44px; font-size: 13px; }
+a.map:hover, button:hover { border-color: #afc6b4; }
+a.map:active, button:active { background: #e4eee5; }
+:focus-visible { outline: 2px solid #355c49; outline-offset: 3px; }
+.trip-dashboard { padding: 0; margin: 0 0 26px; border: 0; }
+.trip-dashboard > h2, .trip-dashboard > p { display: none; }
+.trip-facts { gap: 9px; margin: 0 0 24px; }
+.trip-facts > span { background: var(--surface); flex: 1; min-width: 0; font-size: 12px; padding: 13px 14px; border-radius: 10px; }
+.trip-facts > span:last-child { display: none; }
+.trip-facts strong { color: var(--ink); margin-top: 4px; font-size: 25px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.stay-route { padding: 14px 0 26px; margin: 18px 0 24px; border-bottom: 1px solid var(--line); }
+.stay-route li { padding-top: 25px; gap: 5px; }
+.stay-route strong { font: 650 23px/1.35 system-ui, "PingFang TC", sans-serif; }
+.stay-route li::before { background: #759581; }
+.stay-route li:not(:last-child)::after { border-color: #b5c5b6; }
+.stay-route span { font-size: 15px; }
+.trip-dashboard h3 { font-size: 14px; font-weight: 650; letter-spacing: .03em; }
+.dashboard-days { display: flex; flex-direction: column; gap: 0; margin-top: 6px; }
+.dashboard-days a { display: grid; grid-template-columns: 38px minmax(0, 1fr) 16px; gap: 2px 13px; border: 0; border-radius: 0; padding: 14px 2px; color: var(--ink); text-decoration: none; }
+.dashboard-days a + a { border-top: 1px solid var(--line); }
+.dashboard-days a:hover { background: var(--surface); }
+.day-index { grid-column: 1; grid-row: 1 / 3; align-self: center; display: grid; place-items: center; height: 38px; border-radius: 9px; background: var(--surface); color: var(--berry); font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.dashboard-days small { grid-column: 2; grid-row: 1; font-size: 15px; color: var(--ink); font-weight: 600; line-height: 1.55; }
+.dashboard-days strong { grid-column: 2; grid-row: 2; font-size: 12px; font-weight: 400; color: var(--muted); }
+.dashboard-days a::after { content: "›"; grid-column: 3; grid-row: 1 / 3; align-self: center; color: #7d9182; font-size: 20px; }
+#overview { display: block; }
+.overview-links { margin-block: 22px 24px; gap: 8px; }
+.overview-links a { font-size: 12px; font-weight: 600; background: var(--surface); border-color: transparent; }
+.hotel > strong { font-size: 16px; font-weight: 650; }
+.hotel-contact { margin-top: 10px; gap: 8px; }
+.hotel > div:last-child { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.hotel .overview-detail { padding-inline: 6px; }
+.flight .times { font-size: 25px; letter-spacing: .015em; }
+.booked { background: #e8f2e6; color: #3e6847; font-size: 11px; font-weight: 600; padding: 2px 7px; }
+.pending { background: #fff0d9; border-color: #e2b97d; color: #804510; border-radius: 6px; padding: 2px 7px; font-size: 12px; line-height: 1.6; }
+.date-nav { gap: 8px; margin-bottom: 20px; }
+.date-nav a { border-radius: 10px; font-size: 14px; min-height: 70px; font-weight: 600; }
+.date-nav time { margin-top: 2px; font-size: 12px; }
+.date-nav a[aria-current] { background: var(--berry); border-color: var(--berry); box-shadow: none; }
+.date-nav .day-pending { font-size: 10px; padding: 1px 5px; background: #fff0d9; color: #804510; }
+#days > section { padding: clamp(16px, 3.5vw, 28px); border-radius: 16px; }
+.dayhead { padding: 0 0 20px 15px; border-inline-start: 3px solid #88a88f; border-bottom-color: var(--line); margin-bottom: 14px; }
+.dayhead h2 { font-size: clamp(25px, 4.5vw, 34px); line-height: 1.45; margin-block: 7px 9px; }
+.daynum { font-size: 11px; font-weight: 650; letter-spacing: .13em; }
+.event { --time-column: 64px; --event-gap: 16px; padding-block: 19px; }
+.event::after { inset-block-start: 27px; }
+.event h3 { font-size: 16px; font-weight: 650; line-height: 1.6; }
+.event .small:not(:empty) { margin-top: 7px; }
+.event .timing-note { color: var(--muted); font-size: 12px; line-height: 1.7; }
+.event-venue { line-height: 1.6; font-weight: 500; }
+.time { font-size: 13px; font-weight: 650; padding-top: 3px; }
+.event > .map, .event-actions .map { min-height: 44px; padding: 6px 12px; font-size: 12px; }
+.event a.map:not(.booking-link) { background: var(--surface); border-color: var(--line); font-weight: 600; }
+.event a.map:not(.booking-link):hover { background: var(--rose); border-color: #afc6b4; }
+a.booking-link { color: white; background: var(--berry); font-weight: 600; }
+a.booking-link:hover { color: white; background: #294c3b; }
+.event-actions { gap: 8px; }
+.daily-google-map { gap: 8px; margin-block: 12px; }
+.daily-google-map .map { font-size: 12px; font-weight: 600; }
+.next-stop { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 14px; background: var(--surface); border-radius: 10px; margin: 14px 0; }
+.next-stop > span { grid-column: 1 / -1; color: var(--berry); font-size: 12px; font-weight: 650; }
+.next-stop select { width: 100%; min-width: 0; min-height: 44px; padding: 9px; border: 1px solid #d7e3d9; border-radius: 7px; background: white; color: var(--ink); font: inherit; font-size: 13px; }
+.next-stop > a { font-size: 12px; }
+.day-route { background: var(--surface); border-color: var(--line); }
+.day-route summary { font-size: 13px; font-weight: 600; padding-block: 13px; }
+.overnight { gap: 7px 10px; padding: 14px; margin-top: 18px; background: var(--surface); line-height: 1.8; }
+.overnight .map { font-size: 12px; min-height: 44px; }
+.evening-choice { padding: 10px 12px; background: var(--surface); }
+#booking h2 { font: 600 20px/1.5 system-ui, "PingFang TC", sans-serif; }
+#pretrip-count { font-size: 12px; vertical-align: middle; margin-left: 8px; }
+.pretrip-list li { gap: 12px; align-items: flex-start; }
+.pretrip-list input { margin: 18px 0 0; }
+.pretrip-list a { align-items: flex-start; padding-block: 14px; gap: 12px; }
+.pretrip-list strong { font-size: 14px; font-weight: 600; line-height: 1.7; }
+.pretrip-list .small { flex: 0 0 auto; white-space: nowrap; font-size: 11px; padding: 3px 6px; background: var(--surface); }
+.deadline-hint, #pretrip small { font-size: 12px; color: var(--muted); font-weight: 400; line-height: 1.8; }
+.pretrip-list li.completed { opacity: .65; }
+.packing-progress { background: var(--surface); padding: 12px 14px; }
+.packing-group-count { background: var(--surface); }
+#packing label.check { padding-block: 13px; font-size: 14px; }
+#packing h3 { margin-top: 22px; padding-bottom: 12px; font-size: 14px; }
+.packing-filter { font-size: 13px; }
+.backup-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 12px 0 18px; }
+.backup-actions button, .backup-actions label { min-height: 44px; font-size: 12px; }
+.emergency-extra a[href^="tel:"] { min-height: 44px; }
+.mobile-nav { position: fixed; z-index: 8; bottom: 0; left: 50%; transform: translateX(-50%); width: min(100%, 840px); display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; margin: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: white; border: 1px solid var(--line); border-radius: 14px 14px 0 0; }
+.mobile-nav a { flex-direction: column; justify-content: center; gap: 5px; min-height: 52px; padding: 7px 2px; border: 0; border-radius: 10px; background: transparent; box-shadow: none; color: var(--muted); font-weight: 500; }
+.mobile-nav svg { display: block; width: 21px; height: 21px; flex-shrink: 0; }
+.mobile-nav a span { font-size: 11px; line-height: 1.4; }
+.mobile-nav a[aria-current] { color: var(--berry); background: var(--rose); font-weight: 650; }
+.mobile-nav a[aria-current] svg { stroke-width: 1.9; }
+#main-navigation:focus, #pretrip:focus, #emergency:focus, [id^="schedule-d"]:focus, [id^="pending-d"]:focus { outline: none; }
+.copy-feedback { bottom: calc(92px + env(safe-area-inset-bottom)); }
+@media (max-width: 640px) {
+  main { margin: 0; border: 0; border-radius: 0; padding: 14px 14px calc(106px + env(safe-area-inset-bottom)); }
+  .mobile-nav { left: 0; transform: none; border-inline: 0; border-radius: 0; }
+  .cover-caption { padding: 18px; }
+  header h1 { font-size: 28px; }
+  .stay-route strong { font-size: 21px; }
+  .event, .event:has(.event-actions) { --time-column: 52px; --event-gap: 14px; grid-template-columns: var(--time-column) minmax(0, 1fr); column-gap: var(--event-gap); row-gap: 10px; }
+  .event > .map, .event-actions { grid-column: 2; justify-self: start; }
+  .event-actions { display: flex; flex-wrap: wrap; }
+  .event > .map { margin-top: 0; }
+  .event .small { overflow-wrap: anywhere; }
+  .trip-facts > span { padding: 12px; }
+  .trip-facts strong { font-size: 23px; }
+}
+@media (max-width: 360px) {
+  .next-stop { grid-template-columns: minmax(0, 1fr); }
+  .next-stop > a { justify-content: center; }
+  .trip-facts > span { padding-inline: 9px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { a.map, button, nav a { transition: none; } }
+@media print { .mobile-nav, .backup-actions { display: none !important; } main { margin: 0; border: 0; padding: 0; } }
 </style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><header id="top"><figure class="cover-photo"><img src="https://image.vietnam.travel/sites/default/files/2022-05/shutterstock_1216372543_0.jpg" alt="會安古城黃牆建築與河岸夕陽" width="1200" height="675" fetchpriority="high"><a href="https://vietnam.travel/things-to-do/holistic-wellness-hoi-an-beaches-and-resorts" target="_blank" rel="noopener noreferrer">Vietnam Tourism</a></figure><div class="cover-caption"><p>VIETNAM · PRIVATE JOURNEY 2027</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div></div></header><div id="overview"><section class="trip-dashboard"><h2>峴港・會安旅行總覽</h2><p class="small">2027/02/27（六）—03/04（四）</p><div class="trip-facts"><span>距離出發<strong id="departure-countdown">—</strong></span><span>旅行天數<strong>6 天</strong></span><span>住宿<strong>3 間</strong></span><span>待確認<strong id="dashboard-pending">—</strong></span></div><h3>旅行路線</h3><ol class="stay-route"><li><strong>峴港</strong><span>2 晚</span></li><li><strong>會安</strong><span>2 晚</span></li><li><strong>峴港</strong><span>1 晚</span></li></ol><h3>每日旅程</h3><div class="dashboard-days" id="dashboard-days"></div></section>
 <nav class="overview-links" aria-label="總覽快速跳轉">
   <a href="?view=booking#pretrip" data-itinerary-link>預約管理</a><a href="#flights">航班</a><a href="#hotels">住宿</a><a href="#vietnam-map">越南手繪地圖</a>
@@ -742,7 +837,7 @@ section { border-radius:12px; box-shadow:none; }
   <a rel="next">後一天 →</a>
 </nav>
 </div>
-<section id="packing"><h2>行李清單</h2><div class="backup-actions"><button type="button" id="export-packing">匯出勾選</button><label class="map" for="import-packing">匯入勾選</label><input type="file" id="import-packing" accept="application/json" hidden><span id="backup-status" role="status" class="small"></span></div><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><label class="check"><input type="checkbox" data-save="p17"><span>小電風扇</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a></footer><nav id="main-navigation" tabindex="-1" class="mobile-nav" aria-label="主要底部導覽"><a href="./" data-tab="overview">⌂<span>總覽</span></a><a href="?view=d1" data-tab="days">▦<span>行程</span></a><a href="?view=booking" data-tab="booking">☷<span>待辦</span></a><a href="?view=packing" data-tab="packing">▣<span>行李</span></a><a href="?view=emergency" data-tab="emergency">♧<span>救援</span></a></nav></main><div class="copy-feedback" id="place-copy-status" role="status" hidden></div>
+<section id="packing"><h2>行李清單</h2><div class="backup-actions"><button type="button" id="export-packing">匯出勾選</button><label class="map" for="import-packing">匯入勾選</label><input type="file" id="import-packing" accept="application/json" hidden><span id="backup-status" role="status" class="small"></span></div><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（確認效期）</span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p4"><span>旅遊保險資料</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡、越南盾及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><label class="check"><input type="checkbox" data-save="p17"><span>小電風扇</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a></footer><nav id="main-navigation" tabindex="-1" class="mobile-nav" aria-label="主要底部導覽"><a href="./" data-tab="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h5v-7h4v7h5V9"/></svg><span>總覽</span></a><a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16m-12 4h2m4 0h2m-8 3h2"/></svg><span>行程</span></a><a href="?view=booking" data-tab="booking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 5 1.5 1.5L7 3.5M10 5h11M3 12h3m4 0h11M3 19h3m4 0h11"/></svg><span>待辦</span></a><a href="?view=packing" data-tab="packing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="15" rx="2"/><path d="M9 6V3h6v3M10 10v7m4-7v7M8 21v1m8-1v1"/></svg><span>行李</span></a><a href="?view=emergency" data-tab="emergency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 3 5-2.5 2.5a14 14 0 0 0 5 5L16 13l5 3-1 4c-.2.8-1 1.2-1.8 1C10 19.6 4.4 14 3 5.8c-.2-.8.2-1.6 1-1.8l4-1Z"/></svg><span>救援</span></a></nav></main><div class="copy-feedback" id="place-copy-status" role="status" hidden></div>
 <dialog id="place-copy-dialog"><form method="dialog"><button type="submit">關閉</button></form><p>長按下方文字即可複製</p><textarea id="place-copy-text" readonly aria-label="店名或地址"></textarea></dialog><script>
 const dates = [...document.querySelectorAll('[data-day]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
@@ -869,7 +964,8 @@ document.addEventListener('click', event => {
     focusItineraryAnchor();
   } else if (link.hasAttribute('data-itinerary-link')) {
     viewTop.scrollIntoView({ behavior: 'instant' });
-    document.querySelector('[data-day][aria-current]').focus({ preventScroll: true });
+    const focusTarget = document.querySelector('[data-day][aria-current]') || document.querySelector('.mobile-nav [aria-current]');
+    focusTarget?.focus({ preventScroll: true });
   } else if (pager.contains(link)) {
     const activeDate = document.querySelector('[data-day][aria-current]');
     activeDate.focus({ preventScroll: true });
