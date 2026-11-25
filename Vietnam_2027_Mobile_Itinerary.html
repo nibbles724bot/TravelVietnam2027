@@ -627,10 +627,6 @@ a.booking-link:hover { color: white; background: #294c3b; }
 .event-actions { gap: 8px; }
 .daily-google-map { gap: 8px; margin-block: 12px; }
 .daily-google-map .map { font-size: 12px; font-weight: 600; }
-.next-stop { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; padding: 14px; background: var(--surface); border-radius: 10px; margin: 14px 0; }
-.next-stop > span { grid-column: 1 / -1; color: var(--berry); font-size: 12px; font-weight: 650; }
-.next-stop select { width: 100%; min-width: 0; min-height: 44px; padding: 9px; border: 1px solid #d7e3d9; border-radius: 7px; background: white; color: var(--ink); font: inherit; font-size: 13px; }
-.next-stop > a { font-size: 12px; }
 .day-route { background: var(--surface); border-color: var(--line); }
 .day-route summary { font-size: 13px; font-weight: 600; padding-block: 13px; }
 .overnight { gap: 7px 10px; padding: 14px; margin-top: 18px; background: var(--surface); line-height: 1.8; }
@@ -674,8 +670,6 @@ a.booking-link:hover { color: white; background: #294c3b; }
   .trip-facts strong { font-size: 23px; }
 }
 @media (max-width: 360px) {
-  .next-stop { grid-template-columns: minmax(0, 1fr); }
-  .next-stop > a { justify-content: center; }
   .trip-facts > span { padding-inline: 9px; font-size: 11px; }
 }
 @media (prefers-reduced-motion: reduce) { a.map, button, nav a { transition: none; } }
@@ -688,11 +682,92 @@ a.booking-link:hover { color: white; background: #294c3b; }
 .exchange-note img { display: block; width: 100%; height: auto; max-width: 315px; margin-inline: auto; border-radius: 8px; }
 .exchange-note figcaption { margin-top: 8px; text-align: center; font-size: 11px; }
 @media (max-width: 640px) { .exchange-note { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 16px; } }
-</style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><header id="top"><figure class="cover-photo"><img src="/assets/hoi-an-cover-800-22dc28e5.webp" srcset="/assets/hoi-an-cover-480-832c8fb0.webp 480w, /assets/hoi-an-cover-800-22dc28e5.webp 800w, /assets/hoi-an-cover-1200-fdaaa280.webp 1200w, /assets/hoi-an-cover-1600-630ce3f5.webp 1600w" sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 840px) calc(100vw - 42px), 798px" alt="會安古城黃牆建築與河岸夕陽" width="1600" height="900" fetchpriority="high" loading="eager" decoding="async"><a href="https://vietnam.travel/things-to-do/holistic-wellness-hoi-an-beaches-and-resorts" target="_blank" rel="noopener noreferrer">Vietnam Tourism</a></figure><div class="cover-caption"><p>VIETNAM · PRIVATE JOURNEY 2027</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div></div></header><div id="overview"><section class="trip-dashboard"><h2>峴港・會安旅行總覽</h2><p class="small">2027/02/27（六）—03/04（四）</p><div class="trip-facts"><span>距離出發<strong id="departure-countdown">—</strong></span><span>旅行天數<strong>6 天</strong></span><span>住宿<strong>3 間</strong></span><span>待確認<strong id="dashboard-pending">—</strong></span></div><h3>旅行路線</h3><ol class="stay-route"><li><strong>峴港</strong><span>2 晚</span></li><li><strong>會安</strong><span>2 晚</span></li><li><strong>峴港</strong><span>1 晚</span></li></ol><h3>每日旅程</h3><div class="dashboard-days" id="dashboard-days"></div></section>
+/* UI review: readable progress, comfortable controls and consistent states. */
+.date-nav a, .mobile-nav a { transition: none; }
+html { scroll-padding-block: 16px calc(100px + env(safe-area-inset-bottom)); }
+.view-focus:focus { outline: none; }
+.stay-route small { display: block; color: var(--muted); font-size: 11px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.dashboard-days a { grid-template-columns: 38px minmax(0, 1fr) auto 16px; }
+.dashboard-days a::after { grid-column: 4; }
+.dashboard-task-count { grid-column: 3; grid-row: 1 / 3; align-self: center; padding: 2px 6px; border-radius: 5px; background: #fff0d9; color: #804510; font-size: 10px; white-space: nowrap; }
+.dashboard-task-count.is-complete, .date-nav .day-pending.is-complete { color: #3e6847; background: #e8f2e6; }
+.date-nav a { display: grid; grid-template-rows: auto auto 18px; align-content: center; justify-items: center; gap: 2px; min-height: 84px; padding-block: 9px; }
+.date-nav time { margin: 0; }
+.date-nav .day-pending { margin: 0; font-size: 10px; line-height: 16px; }
+.day-pager { margin-top: 18px; }
+.day-pager a { flex-direction: column; gap: 2px; min-height: 58px; padding: 9px 16px; border-radius: 10px; background: var(--surface); }
+.day-pager a small { color: var(--muted); font-size: 11px; font-weight: 400; }
+.day-route summary { display: flex; align-items: center; gap: 10px; list-style: none; }
+.day-route summary::-webkit-details-marker { display: none; }
+.day-route summary::marker { content: ''; }
+.day-route summary small { margin-inline-start: auto; color: var(--muted); font-size: 11px; font-weight: 400; }
+.day-route summary svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; transition: transform .16s ease; }
+.day-route[open] summary svg { transform: rotate(180deg); }
+.day-route li { padding-block: 14px; }
+#pretrip-title { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+#pretrip-count { margin: 0 0 0 auto; font-size: 11px; white-space: nowrap; }
+.booking-progress { padding: 12px 14px; border-radius: 9px; background: var(--surface); margin-bottom: 12px; }
+.booking-progress p { margin: 0 0 7px; }
+.booking-progress progress, #packing-meter { display: block; width: 100%; height: 7px; appearance: none; border: 0; border-radius: 999px; overflow: hidden; background: #e1e9e1; accent-color: var(--berry); }
+progress::-webkit-progress-bar { background: #e1e9e1; border-radius: 999px; }
+progress::-webkit-progress-value { background: #547c60; border-radius: 999px; }
+progress::-moz-progress-bar { background: #547c60; border-radius: 999px; }
+.booking-filter, .packing-filter { display: flex; align-items: center; width: 100%; gap: 9px; min-height: 48px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; margin-block: 12px; font-size: 13px; cursor: pointer; }
+.booking-filter:has(input:checked), .packing-filter:has(input:checked) { background: var(--rose); border-color: #b7cdbb; }
+.filter-count { margin-inline-start: auto; font-size: 11px; font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+.pretrip-list li { gap: 6px; }
+.task-check { flex: 0 0 44px; width: 44px; height: 44px; display: grid; place-items: center; margin-top: 3px; border-radius: 8px; cursor: pointer; }
+.task-check:hover, .task-check:focus-within { background: var(--rose); }
+.pretrip-list .task-check input { width: 22px; height: 22px; margin: 0; }
+#pretrip-list li.completed { opacity: 1; }
+#pretrip-list li.completed strong { color: var(--muted); text-decoration: none; font-weight: 500; }
+#pretrip-list li.completed .small { background: #e8f2e6; }
+.deadline-hint { display: inline-block; margin-top: 3px; }
+.completion-note { padding: 12px 14px; border-inline-start: 3px solid #6a9975; border-radius: 7px; color: #355c49; background: var(--rose); font-size: 13px; line-height: 1.8; }
+#packing input:checked + span { color: var(--muted); text-decoration: none; }
+#packing label.check:has(input:checked) { background: #f4f8f3; }
+#reset { border-color: transparent; background: transparent; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; font-size: 12px; }
+#undo-packing { background: var(--rose); border-color: transparent; }
+.rescue-group + .rescue-group { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
+.emergency-extra .rescue-group > h3 { margin: 0 0 12px; font-size: 15px; }
+.rescue-group > p { margin: 0; padding-block: 12px; line-height: 1.8; font-size: 14px; }
+.rescue-group > p + p { border-top: 1px solid var(--line); }
+.rescue-group > p a[href^="tel:"] { font-size: 19px; font-weight: 600; }
+.rescue-group:last-child { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.rescue-group:last-child > h3 { grid-column: 1 / -1; }
+.rescue-hotel { padding: 15px; border: 1px solid var(--line); border-radius: 10px; }
+.rescue-hotel h4 { margin: 0; color: var(--ink); font-size: 15px; font-weight: 650; line-height: 1.6; }
+.rescue-hotel p { margin: 8px 0 12px; overflow-wrap: anywhere; }
+.rescue-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rescue-actions a[href^="tel:"] { display: inline-flex; align-items: center; min-height: 44px; padding: 6px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; font-size: 13px; font-weight: 600; text-decoration: none; }
+#place-copy-dialog { border-radius: 16px; padding: 22px; }
+#place-copy-dialog h2 { margin-block: 6px 12px; font: 600 20px/1.5 system-ui, "PingFang TC", sans-serif; }
+#place-copy-dialog p { color: var(--muted); font-size: 13px; }
+#place-copy-dialog button { min-height: 44px; }
+#place-copy-text { border: 1px solid var(--line); border-radius: 8px; padding: 12px; line-height: 1.7; }
+@media (min-width: 920px) {
+  .dashboard-days { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+  .dashboard-days a:nth-child(2) { border-top: 0; }
+}
+@media (max-width: 640px) {
+  .rescue-group:last-child { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 380px) {
+  .pretrip-list a { flex-direction: column; gap: 5px; }
+  #pretrip-count { margin-inline-start: 0; }
+}
+@media (max-width: 360px) {
+  .dashboard-days a { grid-template-columns: 36px minmax(0, 1fr) 16px; gap: 3px 10px; }
+  .dashboard-task-count { grid-column: 2; grid-row: 3; justify-self: start; }
+  .dashboard-days a::after { grid-column: 3; grid-row: 1 / 4; }
+}
+@media (prefers-reduced-motion: reduce) { .day-route summary svg { transition: none; } }
+@media print { .booking-filter, .booking-progress, .task-check { display: none; } }
+</style><a class="skip-link" href="#main-navigation">跳到行程導覽</a><main><span id="view-announcement" class="sr-only" role="status"></span><header id="top"><figure class="cover-photo"><img src="/assets/hoi-an-cover-800-22dc28e5.webp" srcset="/assets/hoi-an-cover-480-832c8fb0.webp 480w, /assets/hoi-an-cover-800-22dc28e5.webp 800w, /assets/hoi-an-cover-1200-fdaaa280.webp 1200w, /assets/hoi-an-cover-1600-630ce3f5.webp 1600w" sizes="(max-width: 640px) calc(100vw - 28px), (max-width: 840px) calc(100vw - 42px), 798px" alt="會安古城黃牆建築與河岸夕陽" width="1600" height="900" fetchpriority="high" loading="eager" decoding="async"><a href="https://vietnam.travel/things-to-do/holistic-wellness-hoi-an-beaches-and-resorts" target="_blank" rel="noopener noreferrer">Vietnam Tourism</a></figure><div class="cover-caption"><p>VIETNAM · PRIVATE JOURNEY 2027</p><h1>峴港・會安</h1><div>2027.02.27 — 03.04</div></div></header><div id="overview"><section class="trip-dashboard"><h2>峴港・會安旅行總覽</h2><p class="small">2027/02/27（六）—03/04（四）</p><div class="trip-facts"><span>距離出發<strong id="departure-countdown">—</strong></span><span>旅行天數<strong>6 天</strong></span><span>住宿<strong>3 間</strong></span><span>待確認<strong id="dashboard-pending">—</strong></span></div><h3>旅行路線</h3><ol class="stay-route"><li><strong>峴港</strong><span>2 晚</span><small>02/27–03/01</small></li><li><strong>會安</strong><span>2 晚</span><small>03/01–03/03</small></li><li><strong>峴港</strong><span>1 晚</span><small>03/03–03/04</small></li></ol><h3>每日旅程</h3><div class="dashboard-days" id="dashboard-days"></div></section>
 <nav class="overview-links" aria-label="總覽快速跳轉">
-  <a href="?view=booking#pretrip" data-itinerary-link>預約管理</a><a href="#flights">航班</a><a href="#vietnam-map">越南手繪地圖</a>
+  <a href="?view=booking#pretrip" data-itinerary-link>預約管理</a><a href="#flights">航班</a><a href="#exchange-note">換匯</a><a href="#vietnam-map">越南手繪地圖</a>
 </nav>
-<section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d6" data-itinerary-link>查看第 6 天 ↗</a></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><aside class="exchange-note" aria-labelledby="exchange-note-title"><div><h3 id="exchange-note-title">換匯小提醒</h3><p><strong>台幣先換美元，到越南再換越南盾</strong></p></div><figure><img src="/assets/vnd-twd-quick-reference-9c515f53.webp" width="315" height="333" loading="lazy" fetchpriority="low" decoding="async" alt="越南盾兌台幣快速估算：10萬約130元、50萬約650元、100萬約1300元。"><figcaption class="small">約略換算，實際依換匯匯率。</figcaption></figure></aside><section id="vietnam-map" aria-labelledby="vietnam-map-title">
+<section id="flights"><h2><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#fae4df" stroke="none"/><path fill="#fffaf4" d="m7 16 15-7c2-1 4 1 2 3l-6 5-1 7-2 1-2-6-4 1-2-4Z"/><path d="m14 13-4-4 2-1 6 3"/><path d="M7 7v4m-2-2h4"/></svg>航班</h2><div class="flight"><div>02/27 去程 · 星宇航空 JX1701<span class="booked">已訂</span></div><div class="times">12:45 → 14:40</div><div>桃園 TPE → 峴港 DAD｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d1" data-itinerary-link>查看第 1 天 ↗</a></div><div class="flight"><div>03/04 回程 · 星宇航空 JX704<span class="booked">已訂</span></div><div class="times">18:25 → 22:10</div><div>峴港 DAD → 桃園 TPE｜第二航廈 → 第二航廈</div><a class="overview-detail" href="?view=d6" data-itinerary-link>查看第 6 天 ↗</a></div><div><strong>行李免費托運：1 件</strong><ul><li>單件重量：最多 23 公斤</li></ul></div><p class="small">航班依機票資料。各時間均為當地時間，越南比台灣慢一小時。</p></section><aside id="exchange-note" class="exchange-note" aria-labelledby="exchange-note-title"><div><h3 id="exchange-note-title">換匯小提醒</h3><p><strong>台幣先換美元，到越南再換越南盾</strong></p></div><figure><img src="/assets/vnd-twd-quick-reference-9c515f53.webp" width="315" height="333" loading="lazy" fetchpriority="low" decoding="async" alt="越南盾兌台幣快速估算：10萬約130元、50萬約650元、100萬約1300元。"><figcaption class="small">約略換算，實際依換匯匯率。</figcaption></figure></aside><section id="vietnam-map" aria-labelledby="vietnam-map-title">
   <h2 id="vietnam-map-title"><svg class="section-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#e7edda" stroke="none"/><path fill="#fffaf4" d="m7 12 6-2 6 2 6-2v13l-6 2-6-2-6 2Z"/><path d="M13 10v13m6-11v13"/><path fill="#eaa4ad" d="M22 9c0 3-4 6-4 6s-4-3-4-6a4 4 0 0 1 8 0Z"/></svg>越南手繪地圖</h2>
   <p class="small">這趟旅程的峴港與會安，都位於地圖上的中越。</p>
   <figure>
@@ -712,6 +787,9 @@ a.booking-link:hover { color: white; background: #294c3b; }
 <p><strong>M Hotel Danang</strong><br><a href="tel:+842363816868">+84 236 3816 868</a><br><span class="small" lang="vi">M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng, Việt Nam</span><br><button type="button" class="copy-place" data-copy="M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng, Việt Nam">複製越南文地址</button></p><p><strong>Laluna Hoi An Riverside Hotel &amp; Spa</strong><br><a href="tel:+842353666678">+84 235 366 6678</a><br><span class="small" lang="vi">Laluna Hoi An Riverside Hotel &amp; Spa — 12 Nguyễn Du, Hội An, Đà Nẵng, Việt Nam</span><br><button type="button" class="copy-place" data-copy="Laluna Hoi An Riverside Hotel &amp; Spa — 12 Nguyễn Du, Hội An, Đà Nẵng, Việt Nam">複製越南文地址</button></p><p><strong>voco Ma Belle Danang by IHG</strong><br><a href="tel:+842363939969">+84 236 3939 969</a><br><span class="small" lang="vi">voco Ma Belle Danang by IHG — 168 Võ Nguyên Giáp, Đà Nẵng, Việt Nam</span><br><button type="button" class="copy-place" data-copy="voco Ma Belle Danang by IHG — 168 Võ Nguyên Giáp, Đà Nẵng, Việt Nam">複製越南文地址</button></p></div></section>
 <div id="booking" hidden><section id="pretrip" aria-labelledby="pretrip-title" hidden>
   <h2 id="pretrip-title">出發前待辦清單 <span class="pending" id="pretrip-count"></span></h2>
+  <div class="booking-progress"><p id="booking-summary" class="small" aria-live="polite"></p><progress id="booking-meter" aria-label="待辦完成進度"></progress></div>
+  <label class="booking-filter"><input id="only-open-tasks" type="checkbox">只顯示未完成<span id="booking-filter-count" class="filter-count" aria-hidden="true"></span></label>
+  <p id="booking-empty" class="completion-note" role="status" hidden>目前沒有未完成項目，可取消篩選查看全部。</p>
   <ul id="pretrip-list" class="pretrip-list"></ul>
 </section></div><div id="days">
 <span id="day-announcement" class="sr-only" role="status"></span>
@@ -844,8 +922,8 @@ a.booking-link:hover { color: white; background: #294c3b; }
   <a rel="next">後一天 →</a>
 </nav>
 </div>
-<section id="packing"><h2>行李清單</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備</label><p id="packing-empty" class="small" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（入境時至少6個月效期）<br><small class="small">本趟請確認有效至2027/08/27或之後。</small></span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><label class="check"><input type="checkbox" data-save="p17"><span>小電風扇</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a></footer><nav id="main-navigation" tabindex="-1" class="mobile-nav" aria-label="主要底部導覽"><a href="./" data-tab="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h5v-7h4v7h5V9"/></svg><span>總覽</span></a><a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16m-12 4h2m4 0h2m-8 3h2"/></svg><span>行程</span></a><a href="?view=booking" data-tab="booking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 5 1.5 1.5L7 3.5M10 5h11M3 12h3m4 0h11M3 19h3m4 0h11"/></svg><span>待辦</span></a><a href="?view=packing" data-tab="packing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="15" rx="2"/><path d="M9 6V3h6v3M10 10v7m4-7v7M8 21v1m8-1v1"/></svg><span>行李</span></a><a href="?view=emergency" data-tab="emergency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 3 5-2.5 2.5a14 14 0 0 0 5 5L16 13l5 3-1 4c-.2.8-1 1.2-1.8 1C10 19.6 4.4 14 3 5.8c-.2-.8.2-1.6 1-1.8l4-1Z"/></svg><span>救援</span></a></nav></main><div class="copy-feedback" id="place-copy-status" role="status" hidden></div>
-<dialog id="place-copy-dialog"><form method="dialog"><button type="submit">關閉</button></form><p>長按下方文字即可複製</p><textarea id="place-copy-text" readonly aria-label="店名或地址"></textarea></dialog><script>
+<section id="packing"><h2>行李清單</h2><div class="packing-progress"><p id="progress" class="small" aria-live="polite"></p><progress id="packing-meter" aria-label="行李準備進度"></progress></div><label class="packing-filter"><input id="only-unpacked" type="checkbox">只顯示尚未準備<span id="packing-filter-count" class="filter-count" aria-hidden="true"></span></label><p id="packing-empty" class="completion-note" role="status" hidden>行李已全部準備完成。</p><div class="packing-group"><h3>證件與金錢 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p1"><span>護照（入境時至少6個月效期）<br><small class="small">本趟請確認有效至2027/08/27或之後。</small></span></label><label class="check"><input type="checkbox" data-save="p2"><span>越南簽證／電子簽證列印與備份</span></label><label class="check"><input type="checkbox" data-save="p3"><span>電子機票及住宿確認資料（離線備份）</span></label><label class="check"><input type="checkbox" data-save="p5"><span>信用卡及備用現金</span></label></div><div class="packing-group"><h3>電子用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p6"><span>手機、充電器、充電線</span></label><label class="check"><input type="checkbox" data-save="p7"><span>行動電源（隨身行李）</span></label><label class="check"><input type="checkbox" data-save="p8"><span>轉接插頭</span></label><label class="check"><input type="checkbox" data-save="p9"><span>eSIM／SIM 卡、離線地圖</span></label><label class="check"><input type="checkbox" data-save="p10"><span>相機、記憶卡與備用電池</span></label><label class="check"><input type="checkbox" data-save="p17"><span>小電風扇</span></label></div><div class="packing-group"><h3>衣物與日用品 <span class="packing-group-count small"></span></h3><label class="check"><input type="checkbox" data-save="p11"><span>輕便衣物、薄外套（巴拿山）</span></label><label class="check"><input type="checkbox" data-save="p12"><span>好走的鞋、海灘拖鞋</span></label><label class="check"><input type="checkbox" data-save="p13"><span>泳衣、帽子、太陽眼鏡</span></label><label class="check"><input type="checkbox" data-save="p14"><span>防曬、防蚊用品</span></label><label class="check"><input type="checkbox" data-save="p15"><span>雨傘或輕便雨衣</span></label><label class="check"><input type="checkbox" data-save="p16"><span>個人藥品、腸胃藥與盥洗用品</span></label></div><p><button id="reset" type="button">重設行李勾選</button> <button id="undo-packing" type="button" hidden>復原勾選</button></p><p class="small">勾選紀錄保存在此瀏覽器。換裝置不會同步。</p></section><footer><a id="return-to-dates" href="#date-navigation" hidden>回到日期選擇 ↑</a></footer><nav id="main-navigation" tabindex="-1" class="mobile-nav" aria-label="主要底部導覽"><a href="./" data-tab="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h5v-7h4v7h5V9"/></svg><span>總覽</span></a><a href="?view=d1" data-tab="days"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16m-12 4h2m4 0h2m-8 3h2"/></svg><span>行程</span></a><a href="?view=booking" data-tab="booking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 5 1.5 1.5L7 3.5M10 5h11M3 12h3m4 0h11M3 19h3m4 0h11"/></svg><span>待辦</span></a><a href="?view=packing" data-tab="packing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="15" rx="2"/><path d="M9 6V3h6v3M10 10v7m4-7v7M8 21v1m8-1v1"/></svg><span>行李</span></a><a href="?view=emergency" data-tab="emergency"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 3 5-2.5 2.5a14 14 0 0 0 5 5L16 13l5 3-1 4c-.2.8-1 1.2-1.8 1C10 19.6 4.4 14 3 5.8c-.2-.8.2-1.6 1-1.8l4-1Z"/></svg><span>救援</span></a></nav></main><div class="copy-feedback" id="place-copy-status" role="status" hidden></div>
+<dialog id="place-copy-dialog" aria-labelledby="place-copy-title"><form method="dialog"><button type="submit">關閉</button></form><h2 id="place-copy-title">店名與地址</h2><p>長按下方文字即可複製</p><textarea id="place-copy-text" readonly aria-label="店名或地址"></textarea></dialog><script>
 const dates = [...document.querySelectorAll('[data-day]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
 const pager = document.querySelector('.day-pager');
@@ -854,6 +932,22 @@ const dailyTab = tabs.find(link => link.dataset.tab === 'days');
 const baseTitle = document.title;
 const returnToDates = document.getElementById('return-to-dates');
 const dayAnnouncement = document.getElementById('day-announcement');
+const viewAnnouncement = document.getElementById('view-announcement');
+function eventTitle(event) {
+  const heading = event.querySelector('h3')?.cloneNode(true);
+  if (!heading) return '';
+  heading.querySelectorAll('.booked, .pending, .michelin').forEach(node => node.remove());
+  return [...heading.childNodes].map(node => node.textContent.trim()).filter(Boolean).join(' ').replace(/\s+/g, ' ');
+}
+function focusCurrentView() {
+  const panel = panels.find(node => !node.hidden);
+  const heading = panel?.id === 'overview' ? viewTop.querySelector('h1') :
+    panel?.id === 'days' ? panel.querySelector('section:not([hidden]) h2') : panel?.querySelector('h2');
+  if (!heading) return;
+  heading.tabIndex = -1;
+  heading.classList.add('view-focus');
+  heading.focus({preventScroll:true});
+}
 let currentDay = '';
 try {
   const savedDay = sessionStorage.getItem('vn2027-last-day');
@@ -902,14 +996,15 @@ for (const date of dates) {
 document.getElementById('pretrip-count').textContent = pendingTotal + ' 項';
 pretrip.hidden = pendingTotal === 0;
 
-function focusItineraryAnchor() {
+function focusItineraryAnchor(scroll = true) {
   const id = location.hash.slice(1);
   if (!['pretrip', 'emergency'].includes(id) && !/^(schedule|pending)-d[1-6](?:-\d+)?$/.test(id)) return;
   const target = document.getElementById(id);
   if (!target || target.closest('[hidden]')) return;
   target.tabIndex = -1;
   target.focus({ preventScroll: true });
-  target.scrollIntoView({ behavior: 'instant' });
+  if (scroll) target.scrollIntoView({ behavior: 'instant' });
+  return true;
 }
 
 function renderView() {
@@ -930,6 +1025,7 @@ function renderView() {
     tab === 'packing' ? '行李清單' : tab === 'booking' ? '預約管理' :
     tab === 'emergency' ? '緊急聯絡電話' : '';
   document.title = heading ? heading + '｜' + baseTitle : baseTitle;
+  viewAnnouncement.textContent = isDay ? '' : '已開啟' + (heading || '旅程總覽');
   document.getElementById('top').classList.toggle('compact', tab !== 'overview');
   for (const panel of panels) panel.hidden = panel.id !== tab;
   for (const link of tabs) {
@@ -952,8 +1048,12 @@ function renderView() {
     link.hidden = target < 1 || target > 6;
     if (!link.hidden) {
       link.href = '?view=d' + target;
-      link.textContent = link.rel === 'prev' ? '← 第 ' + target + ' 天' : '第 ' + target + ' 天 →';
+      const label = document.createElement('span');
+      label.textContent = link.rel === 'prev' ? '← 第 ' + target + ' 天' : '第 ' + target + ' 天 →';
       const targetDate = dates[target - 1].querySelector('time').textContent;
+      const dateLabel = document.createElement('small');
+      dateLabel.textContent = targetDate;
+      link.replaceChildren(label, dateLabel);
       link.setAttribute('aria-label', '第 ' + target + ' 天 ' + targetDate);
     }
   }
@@ -971,18 +1071,35 @@ document.addEventListener('click', event => {
     focusItineraryAnchor();
   } else if (link.hasAttribute('data-itinerary-link')) {
     viewTop.scrollIntoView({ behavior: 'instant' });
-    const focusTarget = document.querySelector('[data-day][aria-current]') || document.querySelector('.mobile-nav [aria-current]');
-    focusTarget?.focus({ preventScroll: true });
+    focusCurrentView();
   } else if (pager.contains(link)) {
     const activeDate = document.querySelector('[data-day][aria-current]');
     activeDate.focus({ preventScroll: true });
     document.getElementById('days').scrollIntoView({ behavior: 'instant' });
-  } else if (link.hasAttribute('data-tab') && viewTop.getBoundingClientRect().top < 0) {
+  } else if (link.hasAttribute('data-tab')) {
     viewTop.scrollIntoView({ behavior: 'instant' });
+    focusCurrentView();
   }
 });
 
-window.addEventListener('popstate', renderView);
+document.getElementById('date-navigation').addEventListener('keydown', event => {
+  const current = event.target.closest('[data-day]');
+  if (!current || event.altKey || event.ctrlKey || event.metaKey) return;
+  const index = dates.indexOf(current);
+  let next;
+  if (event.key === 'ArrowRight') next = dates[(index + 1) % dates.length];
+  else if (event.key === 'ArrowLeft') next = dates[(index - 1 + dates.length) % dates.length];
+  else if (event.key === 'Home') next = dates[0];
+  else if (event.key === 'End') next = dates[dates.length - 1];
+  if (!next) return;
+  event.preventDefault();
+  next.click();
+  next.focus({preventScroll:true});
+});
+window.addEventListener('popstate', () => {
+  renderView();
+  if (!focusItineraryAnchor(false)) focusCurrentView();
+});
 renderView();
 focusItineraryAnchor();
 </script>
@@ -1005,7 +1122,8 @@ meter.max = checks.length;
 function updatePacking() {
   const count = checks.filter(item => item.checked).length;
   progressText.textContent = '已準備 ' + count + ' / ' + checks.length + ' 項 · 剩餘 ' + (checks.length - count) + ' 項';
-  packingEmpty.hidden = !onlyUnpacked.checked || count !== checks.length;
+  packingEmpty.hidden = count !== checks.length;
+  document.getElementById('packing-filter-count').textContent = (checks.length - count) + ' 項';
   for (const group of packingGroups) {
     const ready = group.items.filter(item => item.checked).length;
     group.count.textContent = ready + ' / ' + group.items.length;
@@ -1080,36 +1198,16 @@ window.addEventListener('storage', event => {
 updatePacking();
 </script>
 <script>
-const nativePlaces = [
-  ['M Hotel', 'M Hotel Danang — 286 Võ Nguyên Giáp, Đà Nẵng'],
-  ['Laluna', 'Laluna Hoi An Riverside Hotel & Spa — 12 Nguyễn Du, Hội An'],
-  ['voco', 'voco Ma Belle Danang — 168 Võ Nguyên Giáp, Đà Nẵng'],
-  ['Da Nang International Airport', 'Sân bay quốc tế Đà Nẵng — Nhà ga quốc tế T2'],
-  ['Taoyuan', '桃園國際機場第二航廈'],
-  ['Marble Mountains', 'Ngũ Hành Sơn, Đà Nẵng'],
-  ['Golden Bridge', 'Cầu Vàng, Bà Nà Hills, Đà Nẵng'],
-  ['Sun World Ba Na', 'Sun World Bà Nà Hills, Đà Nẵng'],
-  ['French Village', 'Làng Pháp, Bà Nà Hills'],
-  ['Han Market', 'Chợ Hàn, Đà Nẵng'],
-  ['Dragon Bridge', 'Cầu Rồng, Đà Nẵng'],
-  ['Japanese Covered', 'Chùa Cầu, Hội An'],
-  ['Fujian Assembly', 'Hội quán Phúc Kiến, Hội An'],
-  ['Tan Ky', 'Nhà cổ Tấn Ký, Hội An'],
-  ['An Bang', 'Bãi biển An Bàng, Hội An'],
-  ['My Khe', 'Bãi biển Mỹ Khê, Đà Nẵng'],
-  ['Linh Ung', 'Chùa Linh Ứng, bán đảo Sơn Trà, Đà Nẵng'],
-  ['Hoi An Night Market', 'Chợ đêm Hội An'],
-  ['Bep Cuon', 'Bếp Cuốn — 31–33 Trần Bạch Đằng, Đà Nẵng'],
-  ['My Hanh', 'Hải sản Mỹ Hạnh — 3–5 Võ Nguyên Giáp, Đà Nẵng'],
-  ['La Spa', 'La Spa Hoi An — 132 Hùng Vương, Hội An']
-];
 const copyFeedback = document.getElementById('place-copy-status');
 const copyDialog = document.getElementById('place-copy-dialog');
 const copyText = document.getElementById('place-copy-text');
 let feedbackTimer;
+let copyTrigger;
+copyDialog.addEventListener('close', () => { if(copyTrigger?.isConnected) copyTrigger.focus({preventScroll:true}); });
 document.addEventListener('click', async event => {
   const button = event.target.closest('[data-copy]');
   if (!button) return;
+  copyTrigger = button;
   try {
     await navigator.clipboard.writeText(button.dataset.copy);
     copyFeedback.textContent = '已複製店名／地址';
@@ -1161,44 +1259,82 @@ for (const row of pretripList.children) {
  if (!row.dataset.deadline) {
    const day = new URL(row.querySelector('a').href).searchParams.get('view');
    row.dataset.deadline = deadlineForDay[day] || '2027-02-26';
-   const hint = document.createElement('small');
-   hint.className = 'deadline-hint';
-   hint.textContent = '建議 ' + row.dataset.deadline.slice(5).replace('-', '/') + ' 前處理';
-   row.querySelector('strong').append(document.createElement('br'), hint);
  }
+ const hint = document.createElement('small');
+ hint.className = 'deadline-hint';
+ hint.textContent = '建議 ' + row.dataset.deadline.slice(5).replace('-', '/') + ' 前處理';
+ row.querySelector('strong').append(document.createElement('br'), hint);
 }
 [...pretripList.children].sort((a,b) => a.dataset.deadline.localeCompare(b.dataset.deadline)).forEach(row => pretripList.append(row));
 const taskRows = [...document.querySelectorAll('#pretrip-list li')];
+const onlyOpenTasks = document.getElementById('only-open-tasks');
+try { onlyOpenTasks.checked = sessionStorage.getItem('vn2027-only-open-tasks') === 'true'; } catch {}
 function updateTasks() {
   const remaining = taskRows.filter(row => !row.querySelector('input').checked).length;
-  document.getElementById('pretrip-count').textContent = (taskRows.length - remaining) + ' / ' + taskRows.length;
+  const done = taskRows.length - remaining;
+  document.getElementById('pretrip-count').textContent = '已完成 ' + done + ' / ' + taskRows.length;
+  document.getElementById('booking-summary').textContent = remaining ? '還有 ' + remaining + ' 項待處理' : '全部待辦已完成';
+  const meter = document.getElementById('booking-meter');
+  meter.max = taskRows.length;
+  meter.value = done;
+  document.getElementById('booking-filter-count').textContent = remaining + ' 項';
+  document.getElementById('booking-empty').hidden = !onlyOpenTasks.checked || remaining > 0;
   document.getElementById('dashboard-pending').textContent = remaining + ' 項';
+  for (const row of taskRows) row.hidden = onlyOpenTasks.checked && row.querySelector('input').checked;
   for (const date of dates) {
-    const count = taskRows.filter(row => new URL(row.querySelector('a').href).searchParams.get('view') === date.dataset.day && !row.querySelector('input').checked).length;
-    const badge = date.querySelector('.day-pending');
-    if (badge) { badge.textContent = count ? count + ' 項待確認' : '已確認'; }
+    const rows = taskRows.filter(row => new URL(row.querySelector('a').href).searchParams.get('view') === date.dataset.day);
+    const count = rows.filter(row => !row.querySelector('input').checked).length;
+    let badge = date.querySelector('.day-pending');
+    if (rows.length && !badge) {
+      badge = document.createElement('span');
+      badge.className = 'day-pending';
+      date.append(badge);
+    }
+    if (badge) {
+      badge.textContent = count ? count + ' 項待處理' : '待辦已處理';
+      badge.classList.toggle('is-complete', count === 0);
+    }
+    const dayTitle = document.querySelector('#' + date.dataset.day + ' .dayhead h2').textContent;
+    date.setAttribute('aria-label', '第 ' + date.dataset.day.slice(1) + ' 天 ' + date.querySelector('time').textContent + ' ' + dayTitle + (rows.length ? '，' + count + ' 項待處理' : ''));
+    const card = document.querySelector('[data-dashboard-day="' + date.dataset.day + '"]');
+    if (card) {
+      let counter = card.querySelector('.dashboard-task-count');
+      if (rows.length && !counter) { counter = document.createElement('span'); counter.className = 'dashboard-task-count'; card.append(counter); }
+      if (counter) { counter.textContent = count ? count + ' 項待辦' : '已處理'; counter.classList.toggle('is-complete', count === 0); }
+    }
   }
 }
+onlyOpenTasks.addEventListener('change', () => {
+  try { sessionStorage.setItem('vn2027-only-open-tasks', String(onlyOpenTasks.checked)); } catch {}
+  updateTasks();
+});
 for (const row of taskRows) {
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
-  checkbox.setAttribute('aria-label', '已處理：' + row.textContent.trim());
   const labelClone = row.querySelector('strong').cloneNode(true);
   labelClone.querySelectorAll('.deadline-hint').forEach(node => node.remove());
   const key = 'vn2027-task-' + (row.dataset.taskKey || labelClone.textContent);
   try { checkbox.checked = localStorage.getItem(key) === 'true'; } catch {}
-  row.prepend(checkbox);
+  checkbox.setAttribute('aria-label', '標記已處理：' + labelClone.textContent);
+  const hitArea = document.createElement('label');
+  hitArea.className = 'task-check';
+  hitArea.append(checkbox);
+  row.prepend(hitArea);
   row.classList.toggle('completed', checkbox.checked);
   checkbox.addEventListener('change', () => {
     try { localStorage.setItem(key, String(checkbox.checked)); } catch {}
     row.classList.toggle('completed', checkbox.checked);
+    const next = onlyOpenTasks.checked && checkbox.checked
+      ? taskRows.slice(taskRows.indexOf(row) + 1).find(item => !item.querySelector('input').checked) || taskRows.find(item => !item.querySelector('input').checked)
+      : null;
     updateTasks();
+    if (onlyOpenTasks.checked && checkbox.checked) (next?.querySelector('input') || onlyOpenTasks).focus();
   });
 }
-updateTasks();
 for (const date of dates) {
   const panel = document.getElementById(date.dataset.day);
   const link = document.createElement('a');
+  link.dataset.dashboardDay = date.dataset.day;
   link.href = '?view=' + date.dataset.day;
   link.dataset.itineraryLink = '';
   const title = document.createElement('strong');
@@ -1211,6 +1347,7 @@ for (const date of dates) {
   link.append(index, subtitle, title);
   document.getElementById('dashboard-days').append(link);
 }
+updateTasks();
 const timing = {
   'Luxury Herbal Spa': '停留 60 分鐘',
   '黃金佛手橋': '建議停留 45–60 分鐘',
@@ -1241,23 +1378,78 @@ if('serviceWorker' in navigator){
  if(document.readyState === 'complete') registerOffline();
  else window.addEventListener('load', registerOffline, {once:true});
 }
-for(const date of dates){
- const panel=document.getElementById(date.dataset.day);
- const box=document.createElement('div');box.className='next-stop';
- const label=document.createElement('span');label.textContent='下一站導航';
- const select=document.createElement('select');select.setAttribute('aria-label','選擇下一站');
- const link=document.createElement('a');link.className='map';link.target='_blank';link.rel='noopener noreferrer';link.textContent='Google 地圖 ↗';
- for(const event of panel.querySelectorAll('.event')){
-  const map=event.querySelector('a[data-destination], a[href*="/maps/search/"]');if(!map)continue;
-  const q=map.dataset.destination || new URL(map.href).searchParams.get('query');if(!q)continue;
-  const precise = nativePlaces.find(([key]) => q.includes(key));
-  const option=document.createElement('option');option.value=precise ? precise[1] : q;option.textContent=event.querySelector('.time').textContent+' '+event.querySelector('h3').textContent;
-  select.append(option);
- }
- function destination(){link.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(select.value);}
- select.addEventListener('change',destination);destination();
- box.append(label,select,link);
- panel.querySelector('.day-route').before(box);
+</script>
+<script>
+// Compact, remembered route disclosures and destination-aware link names.
+const compactRoutes = window.matchMedia('(max-width: 640px)');
+for (const route of document.querySelectorAll('.day-route')) {
+  const day = route.closest('section').id;
+  const key = 'vn2027-route-' + day;
+  let saved = null;
+  try { saved = sessionStorage.getItem(key); } catch {}
+  let customized = saved !== null;
+  route.open = customized ? saved === 'true' : !compactRoutes.matches;
+  const summary = route.querySelector('summary');
+  const label = document.createElement('span');
+  label.textContent = '每日分段導航';
+  const count = document.createElement('small');
+  count.textContent = route.querySelectorAll('li').length + ' 段路線';
+  const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  chevron.setAttribute('viewBox', '0 0 24 24');
+  chevron.setAttribute('aria-hidden', 'true');
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', 'm6 9 6 6 6-6');
+  chevron.append(path);
+  summary.replaceChildren(label, count, chevron);
+  summary.addEventListener('click', () => {
+    customized = true;
+    setTimeout(() => { try { sessionStorage.setItem(key, String(route.open)); } catch {} }, 0);
+  });
+  compactRoutes.addEventListener('change', () => { if (!customized) route.open = !compactRoutes.matches; });
 }
+for (const event of document.querySelectorAll('.event')) {
+  const title = eventTitle(event);
+  for (const link of event.querySelectorAll('a[href*="google.com/maps"]')) {
+    if (!link.hasAttribute('aria-label')) link.setAttribute('aria-label', '開啟 ' + title + ' 的' + link.textContent.trim().replace(' ↗', ''));
+  }
+}
+for (const date of dates) {
+  document.querySelector('#' + date.dataset.day + ' .daily-google-map a[href*="google.com/maps"]')
+    ?.setAttribute('aria-label', '開啟第 ' + date.dataset.day.slice(1) + ' 天所有景點的 Google 地圖');
+}
+
+// Organize existing rescue contacts without changing phone numbers or addresses.
+const emergencyExtra = document.querySelector('.emergency-extra');
+for (const row of [...emergencyExtra.querySelectorAll(':scope > p')]) {
+  const copy = row.querySelector('button[data-copy]');
+  if (!copy) continue;
+  const name = row.querySelector('strong').textContent;
+  const card = document.createElement('article');
+  card.className = 'rescue-hotel';
+  const heading = document.createElement('h4');
+  heading.textContent = name;
+  const address = document.createElement('p');
+  address.className = 'small';
+  address.lang = 'vi';
+  address.textContent = row.querySelector('[lang="vi"]').textContent;
+  const actions = document.createElement('div');
+  actions.className = 'rescue-actions';
+  const phone = row.querySelector('a[href^="tel:"]');
+  phone.setAttribute('aria-label', '致電 ' + name + '：' + phone.textContent);
+  copy.setAttribute('aria-label', '複製 ' + name + ' 的越南文地址');
+  actions.append(phone, copy);
+  card.append(heading, address, actions);
+  row.replaceWith(card);
+}
+let rescueGroup;
+for (const node of [...emergencyExtra.children]) {
+  if (node.tagName === 'H3') {
+    rescueGroup = document.createElement('div');
+    rescueGroup.className = 'rescue-group';
+    emergencyExtra.append(rescueGroup);
+  }
+  rescueGroup?.append(node);
+}
+
 </script>
 </html>
